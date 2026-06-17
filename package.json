@@ -1,0 +1,35 @@
+{
+  "name": "jex-analytique",
+  "version": "1.0.0",
+  "description": "Jex-analytique - Plateforme d'analyse des marches et metiers les plus rentables 2025-2035",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx serve . -l 3000",
+    "build": "echo 'No build step required - pure HTML/CSS/JS application'"
+  },
+  "keywords": [
+    "jex-analytique",
+    "analyse",
+    "metiers",
+    "secteurs",
+    "rentables",
+    "orientation",
+    "carriere",
+    "JEXREY"
+  ],
+  "author": "JEXREY - Creation digitale, Services numeriques, Developpement logiciel",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jexrey/jex-analytique"
+  },
+  "bugs": {
+    "url": "https://github.com/jexrey/jex-analytique/issues",
+    "email": "olaezose@gmail.com"
+  },
+  "homepage": "https://jex-analytique.com",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
