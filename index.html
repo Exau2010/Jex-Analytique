@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Builder Pro | Générateur de CV Premium</title>
+    <style>
+        :root{
+            --bg:#0f172a;--surface:#1e293b;--surface2:#334155;--border:#475569;
+            --text:#f1f5f9;--text2:#94a3b8;--text3:#64748b;
+            --accent:#3b82f6;--accent2:#6366f1;--green:#10b981;--gold:#f59e0b;
+            --radius:10px;--radius-sm:6px;--tr:0.2s ease;
+        }
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{
+            font-family:'Inter',system-ui,-apple-system,sans-serif;
+            background:var(--bg);color:var(--text);line-height:1.55;
+        }
+        ::-webkit-scrollbar{width:5px}
+        ::-webkit-scrollbar-track{background:var(--bg)}
+        ::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+
+        /* HEADER */
+        #app-header{
+            background:var(--surface);border-bottom:1px solid var(--border);
+            padding:0.6rem 1.5rem;display:flex;align-items:center;
+            justify-content:space-between;position:sticky;top:0;z-index:100;
+        }
+        #app-header .logo{
+            font-weight:800;font-size:1.1rem;
+            background:linear-gradient(135deg,var(--accent),var(--accent2));
+            -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+        }
+        .header-actions{display:flex;gap:0.5rem;align-items:center}
+        .btn{
+            display:inline-flex;align-items:center;gap:0.35rem;
+            padding:0.45rem 1rem;border-radius:var(--radius-sm);
+            font-weight:600;font-size:0.8rem;cursor:pointer;border:none;
+            transition:all var(--tr);white-space:nowrap;
+        }
+        .btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff}
+        .btn-primary:hover{opacity:0.9;box-shadow:0 4px 16px rgba(59,130,246,0.3)}
+        .btn-outline{background:transparent;border:1.5px solid var(--border);color:var(--text)}
+        .btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+        .btn-sm{padding:0.3rem 0.7rem;font-size:0.72rem}
+
+        /* LAYOUT */
+        #app-layout{display:flex;min-height:calc(100vh - 52px)}
+        #form-panel{
+            width:420px;min-width:380px;background:var(--surface);
+            border-right:1px solid var(--border);overflow-y:auto;
+            padding:1.2rem;display:flex;flex-direction:column;gap:1.2rem;
+            max-height:calc(100vh - 52px);position:sticky;top:52px;
+        }
+        #preview-panel{
+            flex:1;overflow-y:auto;padding:2rem;
+            display:flex;justify-content:center;
+            background:var(--bg);
+            background-image:radial-gradient(ellipse at top,var(--surface2) 0%,var(--bg) 70%);
+        }
+
+        /* FORM */
+        .form-section{
+            background:var(--surface2);border:1px solid var(--border);
+            border-radius:var(--radius);padding:0.9rem 1rem;
+        }
+        .form-section h3{
+            font-size:0.8rem;text-transform:uppercase;letter-spacing:0.04em;
+            color:var(--accent);margin-bottom:0.7rem;font-weight:700;
+        }
+        .form-row{display:flex;gap:0.5rem;margin-bottom:0.5rem}
+        .form-row:last-child{margin-bottom:0}
+        .form-field{flex:1;display:flex;flex-direction:column;gap:0.2rem}
+        .form-field label{
+            font-size:0.68rem;color:var(--text2);font-weight:600;
+            text-transform:uppercase;letter-spacing:0.03em;
+        }
+        .form-field input,.form-field select,.form-field textarea{
+            background:var(--bg);border:1px solid var(--border);color:var(--text);
+            padding:0.4rem 0.55rem;border-radius:var(--radius-sm);font-size:0.78rem;
+            font-family:inherit;transition:all var(--tr);
+        }
+        .form-field input:focus,.form-field select:focus,.form-field textarea:focus{
+            outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(59,130,246,0.1);
+        }
+        .form-field textarea{resize:vertical;min-height:50px}
+
+        /* CV PREVIEW */
+        #cv-document{
+            width:210mm;min-height:297mm;background:#fff;
+            box-shadow:0 8px 40px rgba(0,0,0,0.5);padding:12mm 14mm;
+            font-family:'Inter','Segoe UI',system-ui,sans-serif;
+            color:#1a1a1a;line-height:1.5;
+            border-radius:2px;
+        }
+        #cv-document *{color:#1a1a1a}
+        #cv-document h2{
+            font-size:11pt;text-transform:uppercase;letter-spacing:0.08em;
+            color:#1e3a5f;border-bottom:2px solid #1e3a5f;
+            padding-bottom:2px;margin:14px 0 6px;font-weight:700;
+        }
+        #cv-document h3{font-size:10pt;color:#1e3a5f;margin-bottom:2px;font-weight:600}
+        #cv-document p{font-size:8.5pt;color:#444;margin-bottom:3px;line-height:1.45}
+        #cv-document ul{font-size:8.5pt;color:#444;margin:2px 0 4px 14px}
+        #cv-document li{margin-bottom:1px}
+        #cv-document .cv-header{
+            display:flex;gap:14px;align-items:flex-start;margin-bottom:12px;
+            padding-bottom:10px;border-bottom:3px solid #1e3a5f;
+        }
+        #cv-document .cv-header .cv-photo{
+            width:85px;height:85px;border-radius:50%;object-fit:cover;
+            border:3px solid #1e3a5f;flex-shrink:0;
+            background:#e2e8f0;display:flex;align-items:center;
+            justify-content:center;font-size:32px;color:#94a3b8;
+        }
+        #cv-document .cv-header .cv-info{flex:1}
+        #cv-document .cv-header .cv-name{
+            font-size:22pt;font-weight:800;letter-spacing:-0.5px;
+            color:#0f172a;margin-bottom:1px;line-height:1.1;
+        }
+        #cv-document .cv-header .cv-title{
+            font-size:10pt;color:#3b82f6;font-weight:600;margin-bottom:6px;
+        }
+        #cv-document .cv-header .cv-contact{
+            font-size:7.5pt;color:#64748b;display:flex;flex-wrap:wrap;gap:2px 10px;
+        }
+        #cv-document .cv-header .cv-contact span{display:inline-flex;align-items:center;gap:3px}
+        #cv-document .cv-summary{
+            background:#f0f4ff;padding:7px 10px;border-radius:4px;
+            border-left:3px solid #3b82f6;margin-bottom:10px;font-size:8.5pt;
+            color:#334155;line-height:1.5;font-style:italic;
+        }
+        #cv-document .skill-tags{display:flex;flex-wrap:wrap;gap:4px;margin:3px 0}
+        #cv-document .skill-tag{
+            font-size:7.5pt;padding:2px 7px;border-radius:3px;
+            font-weight:500;letter-spacing:0.01em;
+        }
+        #cv-document .skill-tag.tech{background:#dbeafe;color:#1e40af}
+        #cv-document .skill-tag.soft{background:#d1fae5;color:#065f46}
+        #cv-document .skill-tag.lang{background:#fef3c7;color:#92400e}
+        #cv-document .exp-item{margin-bottom:7px;padding-left:8px;border-left:2px solid #e2e8f0}
+        #cv-document .exp-item .exp-header{display:flex;justify-content:space-between;align-items:baseline}
+        #cv-document .exp-item .exp-role{font-weight:700;font-size:9pt;color:#0f172a}
+        #cv-document .exp-item .exp-date{font-size:7.5pt;color:#64748b;white-space:nowrap}
+        #cv-document .exp-item .exp-company{font-size:8pt;color:#3b82f6;font-weight:500}
+        #cv-document .exp-item .exp-desc{font-size:8pt;color:#555;margin-top:2px}
+        #cv-document .two-col{display:flex;gap:14px}
+        #cv-document .two-col>div{flex:1}
+        #cv-document .stat-row{display:flex;gap:8px;margin:3px 0}
+        #cv-document .stat-dot{
+            width:8px;height:8px;border-radius:50%;margin-top:2px;flex-shrink:0;
+        }
+
+        @media(max-width:1000px){
+            #app-layout{flex-direction:column}
+            #form-panel{
+                width:100%;min-width:auto;max-height:none;
+                position:static;border-right:none;border-bottom:1px solid var(--border);
+                display:grid;grid-template-columns:repeat(2,1fr);gap:0.6rem;padding:0.8rem;
+            }
+            #form-panel .form-section:nth-child(1){grid-column:span 1}
+            #preview-panel{padding:0.6rem;overflow-x:auto}
+            #cv-document{width:100%;min-height:auto;padding:8mm 6mm;box-shadow:none}
+            #cv-document .cv-header{flex-direction:column;align-items:center;text-align:center}
+            #cv-document .cv-header .cv-contact{justify-content:center}
+            #cv-document .two-col{flex-direction:column;gap:0}
+        }
+        @media(max-width:600px){
+            #form-panel{grid-template-columns:1fr;padding:0.5rem}
+            #cv-document .cv-header .cv-name{font-size:16pt}
+        }
+
+        @media print{
+            body{background:#fff}
+            #app-header,#form-panel{display:none!important}
+            #preview-panel{padding:0;background:#fff}
+            #cv-document{box-shadow:none;width:100%;min-height:auto;padding:0}
+        }
+    </style>
+</head>
+<body>
+
+<div id="app-header">
+    <div class="logo">CV Builder Pro</div>
+    <div class="header-actions">
+        <button class="btn btn-outline btn-sm" onclick="resetForm()">Nouveau CV</button>
+        <button class="btn btn-outline btn-sm" onclick="loadExample()">Exemple</button>
+        <button class="btn btn-primary" onclick="printCV()">Imprimer / PDF</button>
+    </div>
+</div>
+
+<div id="app-layout">
+    <!-- FORM PANEL -->
+    <div id="form-panel">
+        <div class="form-section">
+            <h3>👤 Identité</h3>
+            <div class="form-row">
+                <div class="form-field"><label>Prénom</label><input type="text" id="f_firstname" placeholder="Thomas" oninput="updateCV()"></div>
+                <div class="form-field"><label>Nom</label><input type="text" id="f_lastname" placeholder="Dubois" oninput="updateCV()"></div>
+            </div>
+            <div class="form-row">
+                <div class="form-field"><label>Titre professionnel</label><input type="text" id="f_title" placeholder="Développeur Full Stack Senior" oninput="updateCV()"></div>
+            </div>
+            <div class="form-row">
+                <div class="form-field"><label>Âge</label><input type="number" id="f_age" placeholder="32" min="16" max="80" oninput="updateCV()"></div>
+                <div class="form-field"><label>Ville</label><input type="text" id="f_city" placeholder="Paris, France" oninput="updateCV()"></div>
+            </div>
+            <div class="form-row">
+                <div class="form-field"><label>Email</label><input type="email" id="f_email" placeholder="thomas@email.com" oninput="updateCV()"></div>
+                <div class="form-field"><label>Téléphone</label><input type="tel" id="f_phone" placeholder="06 12 34 56 78" oninput="updateCV()"></div>
+            </div>
+            <div class="form-row">
+                <div class="form-field"><label>LinkedIn</label><input type="text" id="f_linkedin" placeholder="linkedin.com/in/thomasdubois" oninput="updateCV()"></div>
+                <div class="form-field"><label>Portfolio / GitHub</label><input type="text" id="f_portfolio" placeholder="github.com/tdubois" oninput="updateCV()"></div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h3>📝 Résumé professionnel</h3>
+            <textarea id="f_summary" rows="2" placeholder="Décrivez votre profil en 2-3 phrases..." oninput="updateCV()"></textarea>
+        </div>
+
+        <div class="form-section">
+            <h3>💻 Compétences techniques</h3>
+            <textarea id="f_tech" rows="2" placeholder="React, TypeScript, Node.js, PostgreSQL, Docker, AWS..." oninput="updateCV()"></textarea>
+        </div>
+
+        <div class="form-section">
+            <h3>🤝 Compétences humaines</h3>
+            <textarea id="f_soft" rows="2" placeholder="Leadership, Communication, Gestion d'équipe..." oninput="updateCV()"></textarea>
+        </div>
+
+        <div class="form-section">
+            <h3>🗣️ Langues</h3>
+            <textarea id="f_languages" rows="2" placeholder="Français (natif), Anglais (courant TOEIC 950), Espagnol (intermédiaire)" oninput="updateCV()"></textarea>
+        </div>
+
+        <div class="form-section">
+            <h3>💼 Expériences professionnelles</h3>
+            <textarea id="f_experience" rows="4" placeholder="Senior Developer @TechCorp (2021-2025)&#10;Gestion d'une équipe de 5 développeurs...&#10;&#10;Développeur @StartupXYZ (2018-2021)&#10;Création d'une application SaaS..." oninput="updateCV()"></textarea>
+        </div>
+
+        <div class="form-section">
+            <h3>🎓 Formations</h3>
+            <textarea id="f_education" rows="2" placeholder="Master Informatique @Université Paris-Saclay (2018)&#10;Licence Mathématiques @Sorbonne Université (2016)" oninput="updateCV()"></textarea>
+        </div>
+
+        <div class="form-section">
+            <h3>📜 Certifications</h3>
+            <textarea id="f_certs" rows="2" placeholder="AWS Solutions Architect (2024)&#10;Google Cloud Professional (2023)" oninput="updateCV()"></textarea>
+        </div>
+
+        <div class="form-section">
+            <h3>🚀 Projets réalisés</h3>
+            <textarea id="f_projects" rows="2" placeholder="Plateforme SaaS B2B - 5000 utilisateurs&#10;Application mobile - 50k téléchargements" oninput="updateCV()"></textarea>
+        </div>
+
+        <div class="form-section">
+            <h3>🎯 Centres d'intérêt</h3>
+            <textarea id="f_interests" rows="2" placeholder="Course à pied, Photographie, Open source, Veille technologique" oninput="updateCV()"></textarea>
+        </div>
+    </div>
+
+    <!-- PREVIEW PANEL -->
+    <div id="preview-panel">
+        <div id="cv-document"></div>
+    </div>
+</div>
+
+<script>
+// ==================== CV ENGINE ====================
+function getVal(id){return document.getElementById(id)?.value?.trim()||''}
+
+function buildCV(){
+    const first = getVal('f_firstname') || 'Prénom';
+    const last = getVal('f_lastname') || 'NOM';
+    const title = getVal('f_title') || 'Titre professionnel';
+    const age = getVal('f_age');
+    const city = getVal('f_city');
+    const email = getVal('f_email');
+    const phone = getVal('f_phone');
+    const linkedin = getVal('f_linkedin');
+    const portfolio = getVal('f_portfolio');
+    const summary = getVal('f_summary') || 'Professionnel motivé avec une solide expérience dans son domaine.';
+    const techRaw = getVal('f_tech');
+    const softRaw = getVal('f_soft');
+    const languagesRaw = getVal('f_languages');
+    const expRaw = getVal('f_experience');
+    const eduRaw = getVal('f_education');
+    const certsRaw = getVal('f_certs');
+    const projectsRaw = getVal('f_projects');
+    const interestsRaw = getVal('f_interests');
+
+    // Parse helper
+    function parseLines(raw){return raw.split('\n').filter(l=>l.trim())}
+    function parseTags(raw){return raw.split(/[,;]/).map(s=>s.trim()).filter(s=>s)}
+
+    const techTags = parseTags(techRaw);
+    const softTags = parseTags(softRaw);
+    const langTags = parseTags(languagesRaw);
+    const expLines = parseLines(expRaw);
+    const eduLines = parseLines(eduRaw);
+    const certLines = parseLines(certsRaw);
+    const projLines = parseLines(projectsRaw);
+    const intLines = parseLines(interestsRaw);
+
+    // Parse experience into structured items
+    const expItems = [];
+    let currentExp = null;
+    expLines.forEach(line=>{
+        if(line.match(/^[A-ZÀ-Ú].+@/) || line.match(/^[A-ZÀ-Ú].+(chez|@|-–—)/) || line.match(/^[A-Z].+\d{4}/)){
+            if(currentExp)expItems.push(currentExp);
+            const roleMatch = line.match(/^([^@(chez]+?)(?:\s+(@|chez|at)\s+(.+))?$/i);
+            let role=line,company='',date='';
+            if(roleMatch){role=roleMatch[1].trim();company=roleMatch[3]||''}
+            const dateMatch = line.match(/\(?(\d{4}[-–—]\d{4}|\d{4}[-–—]présent|\d{4}[-–—]aujourd'hui)\)?/i);
+            if(dateMatch)date=dateMatch[1];
+            currentExp={role,company,date,desc:''};
+        }else if(currentExp){
+            currentExp.desc+=(currentExp.desc?' ':'')+line;
+        }
+    });
+    if(currentExp)expItems.push(currentExp);
+
+    // Contact line
+    const contactParts = [];
+    if(city)contactParts.push('📍 '+city);
+    if(email)contactParts.push('✉ '+email);
+    if(phone)contactParts.push('📞 '+phone);
+    if(age)contactParts.push('• '+age+' ans');
+
+    const contactHTML = contactParts.map(p=>`<span>${p}</span>`).join('');
+    const linksHTML = [];
+    if(linkedin)linksHTML.push(`<span>🔗 ${linkedin}</span>`);
+    if(portfolio)linksHTML.push(`<span>🔗 ${portfolio}</span>`);
+
+    // Build CV HTML
+    let html = '';
+
+    // HEADER
+    html += `<div class="cv-header">
+        <div class="cv-photo">${first[0]}${last[0]}</div>
+        <div class="cv-info">
+            <div class="cv-name">${first} ${last.toUpperCase()}</div>
+            <div class="cv-title">${title}</div>
+            <div class="cv-contact">${contactHTML}</div>
+            <div class="cv-contact" style="margin-top:2px">${linksHTML.join('')}</div>
+        </div>
+    </div>`;
+
+    // SUMMARY
+    html += `<div class="cv-summary">${summary}</div>`;
+
+    // SKILLS
+    html += `<h2>Compétences</h2>`;
+    html += `<div class="two-col">
+        <div>
+            <h3>Techniques</h3>
+            <div class="skill-tags">${techTags.map(t=>`<span class="skill-tag tech">${t}</span>`).join('')||'<span style="font-size:8pt;color:#94a3b8">Aucune</span>'}</div>
+        </div>
+        <div>
+            <h3>Humaines</h3>
+            <div class="skill-tags">${softTags.map(t=>`<span class="skill-tag soft">${t}</span>`).join('')||'<span style="font-size:8pt;color:#94a3b8">Aucune</span>'}</div>
+        </div>
+    </div>`;
+
+    // LANGUAGES
+    if(langTags.length>0){
+        html += `<div style="margin-top:4px"><div class="skill-tags">${langTags.map(t=>`<span class="skill-tag lang">${t}</span>`).join('')}</div></div>`;
+    }
+
+    // EXPERIENCE
+    html += `<h2>Expérience Professionnelle</h2>`;
+    if(expItems.length>0){
+        expItems.forEach(exp=>{
+            html += `<div class="exp-item">
+                <div class="exp-header"><span class="exp-role">${exp.role}</span><span class="exp-date">${exp.date}</span></div>`;
+            if(exp.company)html += `<div class="exp-company">${exp.company}</div>`;
+            if(exp.desc)html += `<div class="exp-desc">${exp.desc}</div>`;
+            html += `</div>`;
+        });
+    }else{html += '<p style="font-size:8pt;color:#94a3b8">Aucune expérience renseignée.</p>'}
+
+    // EDUCATION
+    html += `<h2>Formation</h2>`;
+    if(eduLines.length>0){
+        eduLines.forEach(l=>{html += `<p style="margin-bottom:2px">• ${l}</p>`});
+    }else{html += '<p style="font-size:8pt;color:#94a3b8">Aucune formation renseignée.</p>'}
+
+    // CERTIFICATIONS
+    if(certLines.length>0){
+        html += `<h2>Certifications</h2>`;
+        certLines.forEach(l=>{html += `<p style="margin-bottom:2px">• ${l}</p>`});
+    }
+
+    // PROJECTS
+    if(projLines.length>0){
+        html += `<h2>Projets</h2>`;
+        projLines.forEach(l=>{html += `<p style="margin-bottom:2px">• ${l}</p>`});
+    }
+
+    // INTERESTS
+    if(intLines.length>0){
+        html += `<h2>Centres d'Intérêt</h2>`;
+        html += `<p>${intLines.join(' • ')}</p>`;
+    }
+
+    // ATS KEYWORDS (hidden)
+    const allText = [title,summary,techRaw,softRaw,first,last,expRaw].join(' ').toLowerCase();
+    html += `<div style="font-size:1px;color:#fff;line-height:1px;opacity:0.01" aria-hidden="true">${allText}</div>`;
+
+    document.getElementById('cv-document').innerHTML = html;
+}
+
+function updateCV(){buildCV()}
+
+function resetForm(){
+    document.querySelectorAll('#form-panel input,#form-panel textarea').forEach(el=>el.value='');
+    buildCV();
+}
+
+function loadExample(){
+    document.getElementById('f_firstname').value='Thomas';
+    document.getElementById('f_lastname').value='Dubois';
+    document.getElementById('f_title').value='Développeur Full Stack Senior';
+    document.getElementById('f_age').value='32';
+    document.getElementById('f_city').value='Paris, France';
+    document.getElementById('f_email').value='thomas.dubois@email.com';
+    document.getElementById('f_phone').value='06 12 34 56 78';
+    document.getElementById('f_linkedin').value='linkedin.com/in/thomasdubois';
+    document.getElementById('f_portfolio').value='github.com/tdubois';
+    document.getElementById('f_summary').value='Développeur Full Stack passionné avec 7 ans d\'expérience dans la conception d\'applications web performantes et évolutives. Spécialisé en React, TypeScript et Node.js, j\'ai piloté des projets de A à Z pour des clients allant de startups à des grands comptes du CAC 40. Reconnu pour ma capacité à transformer des besoins complexes en solutions élégantes tout en mentorant des équipes techniques.';
+    document.getElementById('f_tech').value='React, TypeScript, Node.js, PostgreSQL, MongoDB, Docker, AWS, GraphQL, Redis, CI/CD, Git, Next.js, TailwindCSS, Jest, Kubernetes';
+    document.getElementById('f_soft').value='Leadership technique, Résolution de problèmes complexes, Communication, Mentorat, Gestion de projet Agile, Autonomie';
+    document.getElementById('f_languages').value='Français (langue maternelle), Anglais (courant - TOEIC 950), Espagnol (intermédiaire B1)';
+    document.getElementById('f_experience').value='Développeur Full Stack Senior @TechCorp (2021-2025)\nLead technique d\'une équipe de 5 développeurs. Architecture et développement d\'une plateforme SaaS B2B servie à plus de 10 000 utilisateurs. Mise en place de pipelines CI/CD réduisant le temps de déploiement de 60%.\n\nDéveloppeur Full Stack @StartupXYZ (2018-2021)\nDéveloppement d\'une application web de gestion de projets. Migration d\'une architecture monolithique vers des microservices. Implémentation d\'une couverture de tests passant de 20% à 85%.\n\nDéveloppeur Frontend @WebAgency (2017-2018)\nCréation d\'interfaces responsives pour des clients e-commerce. Optimisation des performances (Lighthouse score moyen passé de 45 à 92).';
+    document.getElementById('f_education').value='Master Informatique - Université Paris-Saclay (2018)\nLicence Mathématiques et Informatique - Sorbonne Université (2016)\nBaccalauréat Scientifique - Mention Très Bien (2013)';
+    document.getElementById('f_certs').value='AWS Solutions Architect Associate (2024)\nGoogle Cloud Professional Cloud Developer (2023)\nMongoDB Developer Certification (2022)';
+    document.getElementById('f_projects').value='Plateforme SaaS B2B - Architecture microservices, 10 000+ utilisateurs actifs\nOutil open-source de monitoring - 2 500+ étoiles GitHub, utilisé par 50+ entreprises\nApplication mobile React Native - 50 000 téléchargements, note 4.8/5';
+    document.getElementById('f_interests').value='Course à pied (marathon), Photographie, Contribution open source, Veille technologique, Voyages';
+    buildCV();
+}
+
+function printCV(){window.print()}
+
+// ===================== INIT =====================
+document.addEventListener('DOMContentLoaded',()=>{
+    loadExample();
+});
+</script>
+</body>
+</html>
