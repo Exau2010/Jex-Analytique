@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jex-analytique - Analyse IA des marchés mondiaux et orientation professionnelle 2025-2035. Données BLS, Forbes, Statista. Globe 3D interactif.">
+    <meta name="keywords" content="Jex-analytique, analyse professionnel, marché rentable 2025, métier avenir, IA analyse, secteur porteur, statistiques métiers, milliardaires, globe 3D marchés">
+    <meta name="author" content="JEXREY">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Jex-analytique - Analyse Intelligente des Marchés Mondiaux">
+    <meta property="og:description" content="Découvrez les secteurs et métiers les plus rentables avec IA, globe 3D et analyses basées sur BLS, Forbes, Statista et PwC.">
+    <meta property="og:type" content="website">
+    <title>Jex-analytique | Marchés & Métiers 2025-2035</title>
+    <style>
+        :root{
+            --bg:#050510;--surface:#0d0d20;--surface2:#151530;--surface3:#1c1c3a;
+            --border:#252545;--border2:#353560;--text:#e2e2f0;--text2:#9898c0;--text3:#6a6a90;
+            --accent:#4f8fff;--accent2:#7c5ce7;--green:#2ecc71;--red:#e74c3c;--orange:#f39c12;
+            --gold:#f1c40f;--pink:#e91e63;--radius:14px;--radius-sm:8px;
+            --shadow:0 4px 24px rgba(0,0,0,0.35);--tr:0.25s cubic-bezier(0.4,0,0.2,1);
+        }
+        [data-theme="light"]{
+            --bg:#f2f2f8;--surface:#fff;--surface2:#f0f0f8;--surface3:#e5e5f2;
+            --border:#d5d5e5;--border2:#c0c0d5;--text:#1a1a2e;--text2:#585880;--text3:#9090b0;
+        }
+        *{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth}
+        body{
+            font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
+            background:var(--bg);color:var(--text);line-height:1.55;overflow-x:hidden;
+            transition:background var(--tr),color var(--tr);
+        }
+        ::-webkit-scrollbar{width:4px}
+        ::-webkit-scrollbar-track{background:var(--bg)}
+        ::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+
+        nav{
+            position:sticky;top:0;z-index:1000;
+            background:color-mix(in srgb,var(--bg) 94%,transparent);
+            backdrop-filter:blur(22px);border-bottom:1px solid var(--border);padding:0 1.2rem;
+        }
+        .nav-inner{
+            max-width:1550px;margin:0 auto;display:flex;align-items:center;
+            justify-content:space-between;height:56px;gap:0.8rem;
+        }
+        .logo{
+            font-size:1.3rem;font-weight:700;
+            background:linear-gradient(135deg,var(--accent),var(--accent2));
+            -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+            letter-spacing:-0.5px;white-space:nowrap;
+        }
+        .nav-links{display:flex;gap:1px;flex-wrap:wrap}
+        .nav-links a{
+            color:var(--text2);text-decoration:none;padding:0.4rem 0.7rem;
+            border-radius:var(--radius-sm);font-size:0.82rem;font-weight:500;
+            transition:all var(--tr);white-space:nowrap;position:relative;
+        }
+        .nav-links a:hover,.nav-links a.active{color:var(--text);background:var(--surface2)}
+        .nav-links a.active::after{
+            content:'';position:absolute;bottom:1px;left:50%;transform:translateX(-50%);
+            width:16px;height:2px;background:var(--accent);border-radius:1px;
+        }
+        .nav-actions{display:flex;gap:0.4rem;align-items:center}
+        .icon-btn{
+            background:var(--surface2);border:1px solid var(--border);color:var(--text);
+            width:36px;height:36px;border-radius:50%;cursor:pointer;display:flex;
+            align-items:center;justify-content:center;font-size:1rem;transition:all var(--tr);
+        }
+        .icon-btn:hover{background:var(--surface3);border-color:var(--accent)}
+        .menu-toggle{display:none;background:none;border:none;color:var(--text);font-size:1.4rem;cursor:pointer}
+        .badge{
+            background:var(--accent);color:#fff;font-size:0.6rem;font-weight:700;
+            width:16px;height:16px;border-radius:50%;display:flex;align-items:center;
+            justify-content:center;position:absolute;top:-5px;right:-5px;
+        }
+
+        .page{display:none;max-width:1550px;margin:0 auto;padding:1.2rem 1.8rem;animation:fadeIn .35s ease}
+        .page.active{display:block}
+        @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+        h1{font-size:1.9rem;font-weight:700;letter-spacing:-0.5px;margin-bottom:0.3rem}
+        h2{font-size:1.3rem;font-weight:600;margin-bottom:0.6rem}
+        h3{font-size:1rem;font-weight:600;margin-bottom:0.3rem}
+        .text-grad{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+
+        .card{
+            background:var(--surface);border:1px solid var(--border);
+            border-radius:var(--radius);padding:1.2rem;transition:all var(--tr);
+            position:relative;overflow:hidden;
+        }
+        .card:hover{border-color:var(--border2);transform:translateY(-2px);box-shadow:var(--shadow)}
+        .card-accent{border-left:3px solid var(--accent)}
+        .card-green{border-left:3px solid var(--green)}
+        .card-red{border-left:3px solid var(--red)}
+        .card-gold{border-left:3px solid var(--gold)}
+
+        .btn{
+            display:inline-flex;align-items:center;gap:0.35rem;
+            padding:0.55rem 1.2rem;border-radius:var(--radius-sm);
+            font-weight:600;font-size:0.85rem;cursor:pointer;border:none;
+            transition:all var(--tr);text-decoration:none;white-space:nowrap;
+        }
+        .btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff}
+        .btn-primary:hover{opacity:0.9;transform:translateY(-1px);box-shadow:0 4px 16px rgba(79,143,255,0.3)}
+        .btn-outline{background:transparent;border:1.5px solid var(--border);color:var(--text)}
+        .btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+        .btn-sm{padding:0.3rem 0.7rem;font-size:0.75rem}
+        .btn-icon{width:32px;height:32px;padding:0;border-radius:50%;justify-content:center}
+
+        .search-box{
+            display:flex;gap:0.3rem;background:var(--surface);
+            border:1.5px solid var(--border);border-radius:var(--radius);
+            padding:0.25rem;transition:all var(--tr);
+        }
+        .search-box:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px rgba(79,143,255,0.08)}
+        .search-box input{
+            flex:1;background:transparent;border:none;padding:0.6rem 0.9rem;
+            color:var(--text);font-size:0.9rem;outline:none;
+        }
+        .search-box input::placeholder{color:var(--text3)}
+
+        .tag{
+            display:inline-block;padding:0.25rem 0.6rem;border-radius:16px;
+            font-size:0.73rem;font-weight:500;margin:0.12rem;transition:all var(--tr);
+        }
+        .tag-blue{background:rgba(52,152,219,0.12);color:#3498db}
+        .tag-green{background:rgba(46,204,113,0.12);color:#2ecc71}
+        .tag-red{background:rgba(231,76,60,0.12);color:#e74c3c}
+        .tag-orange{background:rgba(243,156,18,0.12);color:#f39c12}
+        .tag-purple{background:rgba(124,92,231,0.12);color:#7c5ce7}
+        .tag-gold{background:rgba(241,196,15,0.12);color:#f1c40f}
+        .tag-clic{cursor:pointer}.tag-clic:hover{opacity:0.8;transform:scale(1.04)}
+
+        .grid{display:grid;gap:1rem}
+        .grid-2{grid-template-columns:repeat(2,1fr)}
+        .grid-3{grid-template-columns:repeat(3,1fr)}
+        .grid-4{grid-template-columns:repeat(4,1fr)}
+        .grid-5{grid-template-columns:repeat(5,1fr)}
+
+        .chart-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1rem}
+        .chart-wrap canvas{width:100%!important}
+
+        #globe-wrap{
+            width:100%;height:480px;border-radius:var(--radius);
+            overflow:hidden;background:var(--surface);border:1px solid var(--border);
+            cursor:grab;position:relative;
+        }
+        #globe-wrap:active{cursor:grabbing}
+        .globe-tip{
+            position:absolute;pointer-events:none;background:var(--surface3);
+            border:1px solid var(--border2);border-radius:10px;
+            padding:0.5rem 0.8rem;font-size:0.75rem;z-index:10;
+            display:none;white-space:nowrap;box-shadow:var(--shadow);
+        }
+
+        .notif{
+            position:fixed;top:75px;right:18px;z-index:9999;
+            background:var(--surface3);border:1px solid var(--accent);
+            border-radius:10px;padding:0.8rem 1.2rem;box-shadow:var(--shadow);
+            animation:slideIn .3s ease;max-width:350px;font-size:0.9rem;
+        }
+        @keyframes slideIn{from{transform:translateX(110%);opacity:0}to{transform:translateX(0);opacity:1}}
+
+        .bar-row{display:flex;align-items:center;gap:0.6rem;margin:0.3rem 0}
+        .bar-label{width:140px;font-size:0.78rem;text-align:right;font-weight:500;flex-shrink:0}
+        .bar-track{flex:1;height:24px;background:var(--bg);border-radius:5px;overflow:hidden}
+        .bar-fill{height:100%;border-radius:5px;display:flex;align-items:center;padding-left:7px;font-size:0.68rem;font-weight:600;transition:width 1.2s ease}
+
+        .modal-overlay{
+            position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:2000;
+            display:flex;align-items:center;justify-content:center;animation:fadeIn .2s;
+        }
+        .modal{
+            background:var(--surface);border:1px solid var(--border);
+            border-radius:var(--radius);padding:1.8rem;max-width:820px;
+            width:94%;max-height:86vh;overflow-y:auto;position:relative;
+        }
+        .modal-close{
+            position:absolute;top:0.7rem;right:0.7rem;background:none;
+            border:none;color:var(--text2);font-size:1.4rem;cursor:pointer;
+        }
+
+        .tabs{display:flex;gap:0.2rem;margin-bottom:1rem;flex-wrap:wrap}
+        .tab{
+            padding:0.4rem 0.9rem;border-radius:18px;cursor:pointer;
+            font-size:0.8rem;font-weight:500;border:1px solid var(--border);
+            background:transparent;color:var(--text2);transition:all var(--tr);
+        }
+        .tab.active,.tab:hover{background:var(--surface2);border-color:var(--accent);color:var(--text)}
+
+        @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.35}}
+        @keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+        .pulse{animation:pulse 2s infinite}
+        .shimmer{
+            background:linear-gradient(90deg,var(--surface) 25%,var(--surface2) 50%,var(--surface) 75%);
+            background-size:200% 100%;animation:shimmer 1.5s infinite;
+        }
+
+        @media(max-width:1200px){.grid-4,.grid-5{grid-template-columns:repeat(3,1fr)}}
+        @media(max-width:900px){
+            .nav-links{display:none;position:absolute;top:56px;left:0;right:0;background:var(--surface);flex-direction:column;padding:1rem;border-bottom:1px solid var(--border);z-index:999}
+            .nav-links.open{display:flex}.menu-toggle{display:block}
+            .grid-2,.grid-3,.grid-4,.grid-5{grid-template-columns:1fr 1fr}
+            h1{font-size:1.4rem}.page{padding:0.8rem}
+            .bar-label{width:80px;font-size:0.65rem}#globe-wrap{height:310px}
+        }
+        @media(max-width:550px){
+            .grid-2,.grid-3,.grid-4,.grid-5{grid-template-columns:1fr}
+            .search-box{flex-direction:column}.bar-label{width:55px;font-size:0.58rem}
+            nav{padding:0 0.6rem}.logo{font-size:1.05rem}
+        }
+        @media print{
+            nav,.nav-actions,.btn,.icon-btn,.menu-toggle{display:none!important}
+            .page{display:block!important;padding:0!important}body{background:#fff;color:#000}
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <div class="logo">Jex-analytique</div>
+        <button class="menu-toggle" onclick="toggleMenu()" aria-label="Menu">&#9776;</button>
+        <div class="nav-links" id="navLinks">
+            <a href="#" data-page="home" class="active" onclick="nav('home')">Accueil</a>
+            <a href="#" data-page="domains" onclick="nav('domains')">Domaines</a>
+            <a href="#" data-page="billionaires" onclick="nav('billionaires')">Milliardaires</a>
+            <a href="#" data-page="metiers" onclick="nav('metiers')">Metiers</a>
+            <a href="#" data-page="rapport" onclick="nav('rapport')">Comparateur</a>
+            <a href="#" data-page="contact" onclick="nav('contact')">Contact</a>
+        </div>
+        <div class="nav-actions">
+            <button class="icon-btn" onclick="toggleTheme()" title="Theme" id="themeBtn">&#9790;</button>
+            <button class="icon-btn" onclick="showFavs()" title="Favoris" style="position:relative">&#9733;<span class="badge" id="favBadge" style="display:none">0</span></button>
+        </div>
+    </div>
+</nav>
+<div id="notifContainer"></div>
+
+<!-- ===== PAGE HOME ===== -->
+<div class="page active" id="page-home">
+    <div style="text-align:center;margin-bottom:1.2rem">
+        <h1><span class="text-grad">Jex-analytique</span></h1>
+        <p style="color:var(--text2);max-width:750px;margin:0 auto 0.6rem;font-size:0.9rem">
+            Plateforme intelligence artificielle d'analyse des marches mondiaux. Identifie les domaines et metiers les plus rentables de 2025 a 2035. Donnees croisees du <strong>BLS, Forbes, Statista, PwC, FMI, IBISWorld, ResearchAndMetric</strong>.
+        </p>
+        <p style="color:var(--text3);max-width:750px;margin:0 auto;font-size:0.75rem">
+            Sources verifiees : BLS.gov | Forbes Real-Time Billionaires | Stack Overflow Dev Survey 2025 | PwC AI Jobs Barometer | Visual Capitalist | NYU Stern | IBISWorld | DataRails | Hostinger
+        </p>
+    </div>
+    <div class="search-box" style="max-width:600px;margin:0 auto 1.2rem">
+        <input type="text" id="homeSearch" placeholder="Recherchez un secteur, domaine, marche..." onkeydown="if(event.key==='Enter')searchHome()" oninput="suggestHome()">
+        <button class="btn btn-primary" onclick="searchHome()">Analyser</button>
+    </div>
+    <div id="homeSuggestions" style="max-width:600px;margin:-0.5rem auto 0.8rem;display:flex;flex-wrap:wrap;gap:0.15rem"></div>
+    <div id="homeResults"></div>
+    <div class="card" style="margin:1.2rem 0">
+        <h2 style="text-align:center">Carte Mondiale des Marches 2025</h2>
+        <p style="color:var(--text2);text-align:center;margin-bottom:0.5rem;font-size:0.8rem">
+            <span style="color:#4f8fff">●</span> Domaines tres avantageux &nbsp;
+            <span style="color:#2ecc71">●</span> En tendance positive &nbsp;
+            <span style="color:#95a5a6">●</span> Faible mais rentable &nbsp;
+            <span style="color:#e74c3c">●</span> En baisse &nbsp;|&nbsp; Survolez les points
+        </p>
+        <div id="globe-wrap"><canvas id="globeCanvas"></canvas><div class="globe-tip" id="globeTip"></div></div>
+    </div>
+    <h2>Secteurs les plus rentables</h2>
+    <div class="grid grid-4" id="topSectors"></div>
+</div>
+
+<!-- ===== PAGE DOMAINS ===== -->
+<div class="page" id="page-domains">
+    <h1>Analyse Comparative des Domaines</h1>
+    <p style="color:var(--text2);margin-bottom:0.6rem">Evolution 2022-2025 et projection 2030-2035. Sources : ResearchAndMetric, IBISWorld, BLS, Statista, PwC.</p>
+    <div class="chart-wrap" style="margin-bottom:1rem"><canvas id="domainsBarChart"></canvas></div>
+    <div class="tabs" id="domainTabs"></div>
+    <div id="domainsDetail"></div>
+</div>
+
+<!-- ===== PAGE BILLIONAIRES ===== -->
+<div class="page" id="page-billionaires">
+    <h1>Top 30 Milliardaires Mondiaux</h1>
+    <p style="color:var(--text2);margin-bottom:0.6rem">Forbes Real-Time (mi-2025). Strategies et secteurs dominants.</p>
+    <div class="grid grid-2" id="billionairesList"></div>
+</div>
+
+<!-- ===== PAGE METIERS ===== -->
+<div class="page" id="page-metiers">
+    <h1>Recherche de Metier</h1>
+    <p style="color:var(--text2);margin-bottom:0.4rem">Plus de 250 metiers analyses. Statistiques : BLS, Indeed, Stack Overflow, PwC, Glassdoor.</p>
+    <div class="search-box" style="max-width:600px;margin-bottom:0.6rem">
+        <input type="text" id="metierSearch" placeholder="Cherchez un metier..." onkeydown="if(event.key==='Enter')searchMetier()" oninput="suggestM()">
+        <button class="btn btn-primary" onclick="searchMetier()">Rechercher</button>
+    </div>
+    <div id="metierSuggestions" style="margin-bottom:0.6rem;display:flex;flex-wrap:wrap;gap:0.12rem"></div>
+    <div id="metierResults"></div>
+    <h2 style="margin-top:2rem">Top 30 Metiers les plus rentables (Projection 10 ans)</h2>
+    <div class="grid grid-3" id="topMetiers"></div>
+</div>
+
+<!-- ===== PAGE COMPARATEUR ===== -->
+<div class="page" id="page-rapport">
+    <h1>Comparateur de Domaines</h1>
+    <p style="color:var(--text2);margin-bottom:0.8rem">Selectionnez deux domaines pour une comparaison approfondie.</p>
+    <div class="grid grid-2" style="margin-bottom:0.8rem">
+        <div><label style="font-weight:600;display:block;margin-bottom:0.2rem">Domaine A</label><select id="c1" style="width:100%;padding:0.6rem;background:var(--surface);color:var(--text);border:1px solid var(--border);border-radius:var(--radius-sm);font-size:0.85rem"><option value="">-- Choisir --</option></select></div>
+        <div><label style="font-weight:600;display:block;margin-bottom:0.2rem">Domaine B</label><select id="c2" style="width:100%;padding:0.6rem;background:var(--surface);color:var(--text);border:1px solid var(--border);border-radius:var(--radius-sm);font-size:0.85rem"><option value="">-- Choisir --</option></select></div>
+    </div>
+    <button class="btn btn-primary" onclick="compareDomains()" style="margin-bottom:1.2rem">Lancer la comparaison</button>
+    <div id="compareResults"></div>
+</div>
+
+<!-- ===== PAGE CONTACT ===== -->
+<div class="page" id="page-contact">
+    <h1>Contact</h1>
+    <div class="grid grid-2">
+        <div class="card"><h3>Envoyez un message</h3>
+            <form id="contactForm" onsubmit="sendContact(event)" style="display:flex;flex-direction:column;gap:0.7rem">
+                <input type="email" placeholder="Votre email" required style="padding:0.6rem;background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:var(--radius-sm);font-size:0.85rem">
+                <input type="text" placeholder="Objet" required style="padding:0.6rem;background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:var(--radius-sm);font-size:0.85rem">
+                <textarea placeholder="Votre message" rows="5" required style="padding:0.6rem;background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:var(--radius-sm);font-size:0.85rem;resize:vertical"></textarea>
+                <button type="submit" class="btn btn-primary">Envoyer a olaezose@gmail.com</button>
+            </form>
+        </div>
+        <div class="card"><h3>Informations</h3>
+            <p style="margin-bottom:0.6rem"><strong>Email :</strong> olaezose@gmail.com</p>
+            <p style="margin-bottom:0.6rem"><strong>Entreprise :</strong> JEXREY - Creation digitale, services numeriques, developpement logiciel.</p>
+            <p style="margin-bottom:0.6rem;color:var(--orange);font-size:0.85rem"><strong>Avertissement :</strong> Les analyses peuvent comporter des erreurs. Verifiez les faits aupres de sources officielles avant toute decision.</p>
+            <button class="btn btn-outline btn-sm" onclick="shareSite()">Partager</button>
+        </div>
+    </div>
+</div>
+
+<script>
+// ======== DATA ENGINE ========
+const STORE = {
+    domains: [], billionaires: [], metiers: {}, metiersList: [],
+    favs: JSON.parse(localStorage.getItem('jxFav')||'[]'),
+    theme: localStorage.getItem('jxTheme')||'dark'
+};
+
+// ======== DOMAINS (30) ========
+STORE.domains = [
+    {id:"ia",n:"Intelligence Artificielle",ic:"AI",c:"#4f8fff",g22:22,g23:28,g24:28.4,g25:37.3,g30:28.5,mkt:"$407Mds",mk30:"$1,800Mds",sr:72,desc:"Secteur N°1 mondial (CAGR 37.3%). IA generative, LLM, vision. Investissements: $407Mds. Nvidia, OpenAI, Google, Microsoft, Meta dominent.",ent:"Sam Altman (OpenAI), Jensen Huang (Nvidia), Demis Hassabis (DeepMind)",vid:"2ePf9rue1Ao",
+        mt:[["Ingenieur IA/ML","$73K-$210K","+37%","up","intellectuel"],["Data Scientist","$60K-$190K","+34%","up","intellectuel"],["Prompt Engineer","$50K-$150K","+45%","up","intellectuel"],["MLOps Engineer","$70K-$180K","+40%","up","intellectuel"],["Ethicien IA","$55K-$140K","+30%","up","intellectuel"],["Chercheur IA","$65K-$220K","+32%","up","intellectuel"],["Architecte IA","$80K-$200K","+38%","up","intellectuel"]]},
+    {id:"semicon",n:"Semi-conducteurs",ic:"SC",c:"#34495e",g22:18,g23:22,g24:24,g25:30.5,g30:22,mkt:"$620Mds",mk30:"$1,200Mds",sr:78,desc:"Marge nette 30.45%, la plus elevee US. Nvidia, TSMC, ASML. Explosion datacenters IA.",ent:"Jensen Huang (Nvidia), Morris Chang (TSMC)",vid:"nTGUyW0rCVg",
+        mt:[["Ingenieur Semi-conducteurs","$70K-$200K","+25%","up","intellectuel"],["Ingenieur Electronique","$55K-$140K","+12%","up","intellectuel"],["Technicien Salle Blanche","$35K-$70K","+15%","up","manuel"],["Ingenieur Photonique","$65K-$160K","+30%","up","intellectuel"],["Architecte Puces","$85K-$220K","+28%","up","intellectuel"]]},
+    {id:"cybersec",n:"Cybersecurite",ic:"CS",c:"#e74c3c",g22:14,g23:17,g24:19.7,g25:24.8,g30:19,mkt:"$215Mds",mk30:"$500Mds",sr:80,desc:"+29% croissance BLS. Ransomwares, cyberespionnage. Penurie mondiale de talents.",ent:"Eugene Kaspersky, Kevin Mitnick",vid:"inWWh6wQH_U",
+        mt:[["Expert Cybersecurite","$82K-$200K","+29%","up","intellectuel"],["Analyste SOC","$55K-$130K","+22%","up","intellectuel"],["Pentester","$65K-$160K","+26%","up","intellectuel"],["Architecte Securite Cloud","$85K-$190K","+28%","up","intellectuel"],["CISO","$120K-$350K","+20%","up","intellectuel"]]},
+    {id:"cloud",n:"Cloud Computing",ic:"CC",c:"#3498db",g22:16,g23:19,g24:20,g25:24.5,g30:18,mkt:"$680Mds",mk30:"$1,500Mds",sr:73,desc:"AWS, Azure, GCP. Migration massive des entreprises. Profils rares et tres bien payes.",ent:"Andy Jassy (AWS), Satya Nadella (Azure)",vid:"3hLmDSFMXQU",
+        mt:[["Architecte Cloud","$90K-$220K","+27%","up","intellectuel"],["Ingenieur DevOps","$75K-$190K","+22%","up","intellectuel"],["SRE","$80K-$200K","+20%","up","intellectuel"],["Ingenieur Kubernetes","$80K-$180K","+25%","up","intellectuel"],["Cloud Security Engineer","$90K-$200K","+28%","up","intellectuel"]]},
+    {id:"dev",n:"Developpement Logiciel",ic:"SW",c:"#6c5ce7",g22:12,g23:14,g24:15.2,g25:19.8,g30:16.4,mkt:"$280Mds",mk30:"$550Mds",sr:68,desc:"Pilier numerique. L'IA automatise 45% taches juniors. Seniors toujours recherches.",ent:"Bill Gates, Mark Zuckerberg",vid:"pBxRQqPemz8",
+        mt:[["Developpeur Full Stack","$58K-$160K","+16%","up","intellectuel"],["Developpeur Backend","$72K-$170K","+14%","up","intellectuel"],["Developpeur Mobile","$63K-$160K","+15%","up","intellectuel"],["Developpeur Frontend","$55K-$145K","+12%","stable","intellectuel"],["Ingenieur QA","$55K-$130K","+10%","stable","intellectuel"]]},
+    {id:"fintech",n:"FinTech / Finance",ic:"FT",c:"#1abc9c",g22:9,g23:12,g24:14,g25:17,g30:14,mkt:"$310Mds",mk30:"$700Mds",sr:70,desc:"Revolution numerique finance. Blockchain, paiements mobiles, neobanques. $116Mds investis en 2025.",ent:"Warren Buffett, Patrick Collison (Stripe)",vid:"4F4qzPbcFzM",
+        mt:[["Analyste Financier","$60K-$180K","+9%","stable","intellectuel"],["Trader Quantitatif","$80K-$500K+","+5%","stable","intellectuel"],["Gestionnaire Patrimoine","$55K-$250K","+12%","up","intellectuel"],["Actuaire","$75K-$220K","+22%","up","intellectuel"],["Banquier Investissement","$80K-$400K+","+10%","up","intellectuel"]]},
+    {id:"energie",n:"Energie Renouvelable",ic:"EN",c:"#2ecc71",g22:17,g23:20,g24:22.1,g25:28.4,g30:18.5,mkt:"$1,770Mds",mk30:"$4,200Mds",sr:65,desc:"Solaire, eolien, hydrogene vert. $1,770Mds investis. Hydrogene: $300Mds d'ici 2030.",ent:"Elon Musk (Tesla Energy)",vid:"RnvCbqu_YjI",
+        mt:[["Ingenieur EnR","$55K-$150K","+25%","up","intellectuel"],["Technicien Eolien","$50K-$90K","+50%","up","mixte"],["Installateur Solaire","$35K-$75K","+42%","up","manuel"],["Ingenieur Hydrogene","$60K-$165K","+35%","up","intellectuel"],["Auditeur Energetique","$45K-$110K","+18%","up","intellectuel"]]},
+    {id:"biotech",n:"Biotechnologies",ic:"BT",c:"#9b59b6",g22:20,g23:25,g24:26.3,g25:31.7,g30:22,mkt:"$665Mds",mk30:"$1,400Mds",sr:74,desc:"GLP-1, therapies geniques. Marge nette 41.7%. Secteur defensif et innovant.",ent:"Leonard Schleifer (Regeneron), Stephane Bancel (Moderna)",vid:"7JzJL4VMWGY",
+        mt:[["Chercheur Biotech","$55K-$160K","+17%","up","intellectuel"],["Geneticien","$60K-$180K","+20%","up","intellectuel"],["Pharmacien","$50K-$145K","+5%","stable","intellectuel"],["Bioinformaticien","$60K-$160K","+22%","up","intellectuel"],["Ingenieur Biomedical","$55K-$150K","+15%","up","intellectuel"]]},
+    {id:"robotique",n:"Robotique / Automatisation",ic:"RB",c:"#e67e22",g22:15,g23:18,g24:20,g25:22,g30:17,mkt:"$95Mds",mk30:"$280Mds",sr:60,desc:"Robots industriels et humanoides. $3.2Mds leves en 2025 pour la robotique humanoide.",ent:"Marc Raibert (Boston Dynamics)",vid:"b_TUJmEM9i4",
+        mt:[["Ingenieur Robotique","$65K-$180K","+30%","up","intellectuel"],["Ingenieur Automatisation","$55K-$150K","+22%","up","intellectuel"],["Technicien Robotique","$38K-$80K","+18%","up","mixte"],["Ingenieur Mecatronique","$55K-$145K","+20%","up","intellectuel"],["Operateur CNC","$30K-$65K","+5%","stable","manuel"]]},
+    {id:"spatial",n:"Industrie Spatiale",ic:"SP",c:"#2c3e50",g22:20,g23:24,g24:26,g25:32,g30:25,mkt:"$546Mds",mk30:"$1,000Mds",sr:55,desc:"Internet satellite, tourisme spatial. SpaceX domine. Objectif $1,000Mds en 2030.",ent:"Elon Musk (SpaceX), Peter Beck (Rocket Lab)",vid:"yRwHkAzBzXo",
+        mt:[["Ingenieur Aeronautique","$70K-$190K","+12%","up","intellectuel"],["Ingenieur Propulsion","$70K-$180K","+16%","up","intellectuel"],["Ingenieur Systemes Spatiaux","$75K-$195K","+18%","up","intellectuel"],["Technicien Integration","$40K-$85K","+14%","up","mixte"],["Analyste Orbital","$60K-$150K","+20%","up","intellectuel"]]},
+    {id:"quantum",n:"Informatique Quantique",ic:"QT",c:"#8e44ad",g22:40,g23:55,g24:70,g25:89.4,g30:70,mkt:"$3Mds",mk30:"$65Mds",sr:35,desc:"Technologie emergente revolutionnaire. IBM, Google, IonQ. Applications: crypto, chimie, finance.",ent:"Hartmut Neven (Google), Chad Rigetti",vid:"bNKj1LkqcVg",
+        mt:[["Physicien Quantique","$70K-$220K","+89%","up","intellectuel"],["Ingenieur Quantique","$80K-$210K","+75%","up","intellectuel"],["Chercheur Algo Quantique","$70K-$200K","+80%","up","intellectuel"],["Technicien Cryogenie","$40K-$85K","+50%","up","mixte"],["Ingenieur Optique","$60K-$160K","+35%","up","intellectuel"]]},
+    {id:"construction",n:"Construction / Immobilier",ic:"CT",c:"#d35400",g22:5,g23:7,g24:8.5,g25:11.2,g30:7.8,mkt:"$14,400Mds",mk30:"$19,500Mds",sr:55,desc:"Secteur massif. Smart cities, construction durable. 380,000 emplois ajoutes.",ent:"Bernard Arnault (LVMH), Donald Bren",vid:"VNe2ZfDgYzk",
+        mt:[["Architecte","$50K-$130K","+8%","stable","mixte"],["Ingenieur Civil","$60K-$155K","+10%","up","intellectuel"],["Electricien","$32K-$78K","+9%","up","manuel"],["Plombier","$30K-$72K","+7%","stable","manuel"],["Conducteur Engins","$28K-$60K","+4%","stable","manuel"]]},
+    {id:"ecommerce",n:"E-commerce / Retail Tech",ic:"EC",c:"#f1c40f",g22:11,g23:14,g24:16,g25:16.8,g30:14,mkt:"$7,900Mds",mk30:"$12,000Mds",sr:52,desc:"Commerce en ligne dominant. Amazon, Shopify, TikTok Shop. IA personnalisation.",ent:"Jeff Bezos (Amazon), Tobias Lutke (Shopify)",vid:"TbMKhdwN8Xk",
+        mt:[["Growth Hacker","$55K-$160K","+20%","up","intellectuel"],["Supply Chain Manager","$55K-$155K","+12%","up","intellectuel"],["Expert Marketing Digital","$50K-$145K","+16%","up","intellectuel"],["Data Analyst E-commerce","$55K-$140K","+18%","up","intellectuel"],["Logisticien","$38K-$90K","+10%","up","mixte"]]},
+    {id:"sante",n:"Sante / Soins Medicaux",ic:"SM",c:"#27ae60",g22:7,g23:8,g24:8,g25:12,g30:10,mkt:"$11,000Mds",mk30:"$16,000Mds",sr:85,desc:"Secteur massif. 1.8M ouvertures/an US. Infirmiers, medecins en tension permanente.",ent:"Dr. Paul Farmer",vid:"mu0dR8aHjCc",
+        mt:[["Medecin Specialiste","$80K-$500K","+7%","up","intellectuel"],["Chirurgien","$100K-$600K","+6%","up","intellectuel"],["Infirmier","$35K-$80K","+9%","up","mixte"],["Dentiste","$60K-$220K","+5%","stable","intellectuel"],["Psychologue","$30K-$85K","+12%","up","intellectuel"]]},
+    {id:"luxe",n:"Luxe / Mode",ic:"LX",c:"#f39c12",g22:5,g23:6,g24:7,g25:11.2,g30:8,mkt:"$380Mds",mk30:"$570Mds",sr:45,desc:"LVMH, Kering, Hermes. Marge brute 65%+. Marche asiatique porteur.",ent:"Bernard Arnault (LVMH)",vid:"6hO2dXiJqI0",
+        mt:[["Styliste","$30K-$110K","+6%","stable","mixte"],["Couturier","$25K-$90K","+4%","stable","manuel"],["Joaillier","$30K-$100K","+5%","stable","manuel"],["Expert Marketing Luxe","$50K-$150K","+12%","up","intellectuel"],["Horloger","$35K-$95K","+3%","stable","manuel"]]},
+    {id:"gaming",n:"Jeux Video / Esport",ic:"GM",c:"#e91e63",g22:9,g23:12,g24:13,g25:16,g30:12,mkt:"$220Mds",mk30:"$400Mds",sr:25,desc:"Industrie massive, tres competitive. AAA: centaines de millions. Esport en croissance.",ent:"Tim Sweeney (Epic), Gabe Newell (Valve)",vid:"sNqMIBBzXh8",
+        mt:[["Developpeur Jeux Video","$50K-$160K","+11%","stable","intellectuel"],["Animateur 3D","$45K-$135K","+18%","up","intellectuel"],["Game Designer","$45K-$130K","+9%","stable","intellectuel"],["Streamer/Influenceur","$0-$5M+","+25%","up","mixte"],["Musicien Compositeur","$15K-$500K+","+2%","stable","mixte"]]},
+    {id:"education",n:"Education / EdTech",ic:"ED",c:"#c0392b",g22:6,g23:8,g24:7.8,g25:12.5,g30:9.5,mkt:"$6,500Mds",mk30:"$10,000Mds",sr:58,desc:"Formation en ligne. Bootcamps, certifications. IA pour l'apprentissage personnalise.",ent:"Sal Khan (Khan Academy), Andrew Ng (Coursera)",vid:"nTgLQwTqHfA",
+        mt:[["Formateur EdTech","$45K-$115K","+16%","up","intellectuel"],["Concepteur Pedagogique","$48K-$120K","+14%","up","intellectuel"],["Coach Professionnel","$35K-$160K","+12%","up","intellectuel"],["Enseignant","$28K-$75K","+3%","stable","intellectuel"],["Conseiller Orientation","$38K-$85K","+8%","stable","intellectuel"]]},
+    {id:"blockchain",n:"Blockchain / Web3",ic:"BC",c:"#e67e22",g22:25,g23:18,g24:15,g25:17.5,g30:20,mkt:"$48Mds",mk30:"$250Mds",sr:30,desc:"Crypto, DeFi, tokenisation. Volatilite extreme. ETF Bitcoin adoptes.",ent:"Changpeng Zhao (Binance), Vitalik Buterin (Ethereum)",vid:"s9W9EKoIhY4",
+        mt:[["Developpeur Blockchain","$70K-$200K","+18%","up","intellectuel"],["Auditeur Smart Contract","$80K-$220K","+25%","up","intellectuel"],["Trader Crypto","$40K-$1M+","+8%","volatile","intellectuel"],["Developpeur Web3","$60K-$180K","+20%","up","intellectuel"],["Consultant Blockchain","$65K-$175K","+16%","up","intellectuel"]]},
+    {id:"politique",n:"Politique / Diplomatie",ic:"PL",c:"#1a5276",g22:2,g23:3,g24:3,g25:5,g30:4,mkt:"$2,500Mds",mk30:"$3,200Mds",sr:25,desc:"Administration publique, diplomatie, ONG. Secteur stable mais tres selectif. Croissance moderee.",ent:"Kofi Annan (ONU), Christine Lagarde (BCE/Ex-FMI)",vid:"GfQftoBnR4",
+        mt:[["Diplomate","$60K-$210K","+5%","stable","intellectuel"],["Analyste Politique","$55K-$130K","+6%","stable","intellectuel"],["Lobbyiste","$70K-$200K","+8%","stable","intellectuel"],["Agent Humanitaire","$30K-$90K","+10%","up","mixte"],["Fonctionnaire International","$55K-$170K","+4%","stable","intellectuel"]]},
+    {id:"social",n:"Social / ONG / Humanitaire",ic:"SO",c:"#117a65",g22:4,g23:5,g24:6,g25:8,g30:7,mkt:"$450Mds",mk30:"$650Mds",sr:40,desc:"Secteur non-lucratif et ONG. Financements en hausse. Impact social et environnemental.",ent:"Muhammad Yunus (Grameen), Melinda Gates",vid:"bf0EwUCFaNY",
+        mt:[["Travailleur Social","$30K-$75K","+7%","stable","mixte"],[" Directeur ONG","$60K-$180K","+9%","stable","intellectuel"],["Analyste Politique Sociale","$50K-$120K","+8%","stable","intellectuel"],["Educateur Specialise","$28K-$65K","+10%","up","mixte"],["Collecteur de Fonds","$45K-$130K","+12%","up","intellectuel"]]},
+    {id:"agritech",n:"AgriTech / Agriculture",ic:"AG",c:"#229954",g22:8,g23:10,g24:12,g25:14.2,g30:11,mkt:"$45Mds",mk30:"$120Mds",sr:42,desc:"Agriculture precision, drones, IoT. Pression climatique. AgriTech en explosion.",ent:"Jorge Heraud (Blue River)",vid:"bf0EwUCFaNY",
+        mt:[["Ingenieur Agronome","$45K-$120K","+10%","up","intellectuel"],["Data Scientist Agri","$55K-$145K","+16%","up","intellectuel"],["Agriculteur Tech","$25K-$90K","+3%","stable","mixte"],["Technicien Drone Agri","$35K-$75K","+20%","up","mixte"],["Apiculteur","$20K-$55K","-2%","declining","manuel"]]},
+    {id:"logistique",n:"Logistique / Transport",ic:"LG",c:"#7f8c8d",g22:5,g23:6,g24:7,g25:9.2,g30:6,mkt:"$8,700Mds",mk30:"$12,000Mds",sr:58,desc:"Supply chain mondiale. Automatisation entrepots. Camions autonomes a venir.",ent:"Fred Smith (FedEx)",vid:"sA_3T5QGZO8",
+        mt:[["Logisticien","$42K-$100K","+10%","up","mixte"],["Chauffeur Routier","$28K-$60K","-3%","declining","manuel"],["Pilote de Ligne","$60K-$280K","+6%","stable","intellectuel"],["Controleur Aerien","$65K-$190K","+4%","stable","intellectuel"],["Agent Maritime","$30K-$75K","+5%","stable","mixte"]]},
+    {id:"tourisme",n:"Tourisme / Hotellerie",ic:"TR",c:"#e67e22",g22:7,g23:10,g24:12,g25:15,g30:12,mkt:"$7,700Mds",mk30:"$11,000Mds",sr:48,desc:"Reprise post-COVID. 823,000 emplois ajoutes. Tourisme durable en croissance.",ent:"Brian Chesky (Airbnb)",vid:"sNqMIBBzXh8",
+        mt:[["Hotel manager","$45K-$130K","+10%","up","mixte"],["Guide Touristique","$22K-$60K","+8%","stable","mixte"],["Chef Cuisinier","$30K-$90K","+6%","stable","manuel"],["Agent de Voyage","$25K-$65K","+5%","stable","mixte"],["Receptionniste","$20K-$45K","+7%","stable","mixte"]]},
+    {id:"assurance",n:"Assurance / InsurTech",ic:"AS",c:"#2980b9",g22:6,g23:8,g24:10,g25:13,g30:11,mkt:"$6,200Mds",mk30:"$9,000Mds",sr:65,desc:"Marge de 50.2% pour les agences. InsurTech revolutionne le secteur.",ent:"Warren Buffett (GEICO)",vid:"4F4qzPbcFzM",
+        mt:[["Actuaire","$75K-$220K","+22%","up","intellectuel"],["Agent d'Assurance","$35K-$100K","+8%","stable","mixte"],["Souscripteur","$55K-$140K","+7%","stable","intellectuel"],["Expert Sinistre","$40K-$110K","+6%","stable","intellectuel"],["Data Analyst InsurTech","$60K-$155K","+18%","up","intellectuel"]]},
+    {id:"media",n:"Media / Divertissement",ic:"MD",c:"#8e44ad",g22:4,g23:6,g24:8,g25:10,g30:9,mkt:"$2,500Mds",mk30:"$3,800Mds",sr:20,desc:"Streaming, reseaux sociaux, contenu. TikTok, Netflix, YouTube. Createurs: economie $100Mds.",ent:"Reed Hastings (Netflix), Zhang Yiming (ByteDance)",vid:"sNqMIBBzXh8",
+        mt:[["Journaliste","$22K-$75K","-4%","declining","intellectuel"],["Createur Contenu","$0-$5M+","+25%","up","mixte"],["Realisateur","$35K-$250K","+5%","stable","intellectuel"],["Monteur Video","$30K-$90K","+12%","up","intellectuel"],["Producteur Audiovisuel","$45K-$180K","+8%","stable","intellectuel"]]},
+    {id:"pharma",n:"Pharmaceutique",ic:"PH",c:"#c0392b",g22:8,g23:10,g24:12,g25:18,g30:14,mkt:"$1,500Mds",mk30:"$2,200Mds",sr:72,desc:"Marge brute 71.73%. GLP-1, oncologie, vaccins. Innovation constante.",ent:"Albert Bourla (Pfizer), Pascal Soriot (AstraZeneca)",vid:"mu0dR8aHjCc",
+        mt:[["Pharmacien","$50K-$145K","+5%","stable","intellectuel"],["Chercheur Pharmaceutique","$55K-$160K","+14%","up","intellectuel"],["Regulatory Affairs","$60K-$155K","+12%","up","intellectuel"],["Visiteur Medical","$40K-$100K","+3%","stable","mixte"],["Ingenieur Procedes","$55K-$145K","+10%","up","intellectuel"]]},
+    {id:"immobilier",n:"Immobilier d'Investissement",ic:"IM",c:"#e67e22",g22:5,g23:7,g24:9,g25:11,g30:8,mkt:"$3,900Mds",mk30:"$5,500Mds",sr:55,desc:"Marge nette 23.77%. S&P Real Estate: 33.5% Q4 2025. REIT en croissance.",ent:"Donald Bren, Stephen Ross",vid:"VNe2ZfDgYzk",
+        mt:[["Agent Immobilier","$30K-$160K","+8%","stable","mixte"],["Promoteur Immobilier","$50K-$250K","+12%","up","mixte"],["Gestionnaire de Biens","$38K-$95K","+6%","stable","mixte"],["Analyste Immobilier","$55K-$150K","+9%","stable","intellectuel"],["Courtier en Pret","$45K-$140K","+7%","stable","intellectuel"]]},
+    {id:"defense",n:"Defense / Aeronautique",ic:"DF",c:"#2c3e50",g22:6,g23:9,g24:11,g25:13,g30:10,mkt:"$2,200Mds",mk30:"$3,000Mds",sr:60,desc:"Budget militaire mondial record. Aeronautique: hausse profit margin 2.8pp.",ent:"Lockheed Martin, Airbus",vid:"yRwHkAzBzXo",
+        mt:[["Ingenieur Aeronautique","$70K-$190K","+12%","up","intellectuel"],["Ingenieur Defense","$65K-$170K","+10%","up","intellectuel"],["Technicien Armement","$38K-$80K","+6%","stable","mixte"],["Analyste Renseignement","$60K-$160K","+8%","stable","intellectuel"],["Pilote Militaire","$55K-$180K","+3%","stable","intellectuel"]]},
+    {id:"automobile",n:"Automobile / VE",ic:"AU",c:"#e74c3c",g22:10,g23:14,g24:18,g25:29.2,g30:20,mkt:"$4,000Mds",mk30:"$8,000Mds",sr:52,desc:"Transition electrique massive. VE: 29.2% CAGR. Tesla, BYD, constructeurs chinois.",ent:"Elon Musk (Tesla), Wang Chuanfu (BYD)",vid:"yRwHkAzBzXo",
+        mt:[["Ingenieur Automobile","$55K-$150K","+14%","up","intellectuel"],["Technicien VE","$38K-$80K","+25%","up","mixte"],["Ingenieur Batteries","$65K-$170K","+30%","up","intellectuel"],["Mecanicien Automobile","$25K-$60K","-2%","declining","manuel"],["Designer Automobile","$50K-$145K","+8%","stable","intellectuel"]]}
+];
+
+// ======== BILLIONAIRES (30) ========
+STORE.billionaires = [
+    {id:"musk",n:"Elon Musk",f:684,fmt:"$684Mds",a:54,ct:"US",gr:"Tesla, SpaceX, xAI, X",sec:"Auto, Espace, IA",strat:"Construit des empires sur ruptures tech radicales. Integration verticale, com directe, tolerance risque extreme.",vid:"yRwHkAzBzXo"},
+    {id:"page",n:"Larry Page",f:283,fmt:"$283Mds",a:52,ct:"US",gr:"Alphabet (Google)",sec:"Technologie, IA",strat:"IA (DeepMind, Gemini), sante (Calico), vehicules autonomes (Waymo). Monopole publicitaire.",vid:"3P5GJdkFipk"},
+    {id:"brin",n:"Sergey Brin",f:261,fmt:"$261Mds",a:52,ct:"US",gr:"Alphabet",sec:"Technologie, IA",strat:"Gardien technique Google X et Gemini pour concurrencer OpenAI.",vid:"3P5GJdkFipk"},
+    {id:"bezos",n:"Jeff Bezos",f:245,fmt:"$245Mds",a:61,ct:"US",gr:"Amazon, Blue Origin",sec:"E-commerce, Cloud, Espace",strat:"Obsession client, diversification (AWS), vision long terme. Reinvestit tous profits.",vid:"TbMKhdwN8Xk"},
+    {id:"dell",n:"Michael Dell",f:236,fmt:"$236Mds",a:60,ct:"US",gr:"Dell Technologies",sec:"IT, Cloud, Infra",strat:"Vente directe puis rachat EMC ($67Mds). Domination infrastructure cloud.",vid:"FqJXzHL5yGc"},
+    {id:"ellison",n:"Larry Ellison",f:201,fmt:"$201Mds",a:81,ct:"US",gr:"Oracle",sec:"Cloud, Bases donnees, IA",strat:"Acquisitions agressives, pivot cloud autonome IA.",vid:"4ryoJIfHH4k"},
+    {id:"zuckerberg",n:"Mark Zuckerberg",f:192,fmt:"$192Mds",a:41,ct:"US",gr:"Meta Platforms",sec:"Reseaux sociaux, IA",strat:"Pivot IA generative (LLaMA), metavers, monetisation 3B+ utilisateurs.",vid:"5zOHS4QagRk"},
+    {id:"huang",n:"Jensen Huang",f:172,fmt:"$172Mds",a:62,ct:"US",gr:"Nvidia",sec:"Semi-conducteurs, IA",strat:"Investissement visionnaire CUDA avant explosion IA. Indispensable infrastructure IA.",vid:"nTGUyW0rCVg"},
+    {id:"arnault",n:"Bernard Arnault",f:150,fmt:"$150Mds",a:76,ct:"France",gr:"LVMH",sec:"Luxe, Mode, Vins",strat:"75 marques iconiques. Heritage artisanal + marketing moderne. Marches asiatiques.",vid:"6hO2dXiJqI0"},
+    {id:"buffett",n:"Warren Buffett",f:147,fmt:"$147Mds",a:95,ct:"US",gr:"Berkshire Hathaway",sec:"Finance, Assurance",strat:"Investissement value: entreprises sous-evaluees a avantage concurrentiel durable.",vid:"w6Yx7QdPcFY"},
+    {id:"ortega",n:"Amancio Ortega",f:141,fmt:"$141Mds",a:89,ct:"Espagne",gr:"Inditex (Zara)",sec:"Mode, Retail",strat:"Fast fashion verticalement integre. Design a vente en 2 semaines.",vid:"sNqMIBBzXh8"},
+    {id:"rwalton",n:"Rob Walton",f:138,fmt:"$138Mds",a:80,ct:"US",gr:"Walmart",sec:"Retail",strat:"Heritier Walmart. Plus grand retailer mondial ($713Mds). Expansion e-commerce.",vid:"TbMKhdwN8Xk"},
+    {id:"jwalton",n:"Jim Walton",f:135,fmt:"$135Mds",a:76,ct:"US",gr:"Walmart",sec:"Retail",strat:"Heritier Walmart. Prix bas, logistique optimisee.",vid:"TbMKhdwN8Xk"},
+    {id:"awalton",n:"Alice Walton",f:126,fmt:"$126Mds",a:75,ct:"US",gr:"Walmart",sec:"Retail, Art",strat:"Heritiere Walmart. Investissements art (Crystal Bridges).",vid:"TbMKhdwN8Xk"},
+    {id:"gates",n:"Bill Gates",f:125,fmt:"$125Mds",a:69,ct:"US",gr:"Microsoft",sec:"Technologie, Philanthropie",strat:"Domination ere PC. Fortune reduite par dons philanthropiques massifs.",vid:"bNKj1LkqcVg"},
+    {id:"slim",n:"Carlos Slim",f:123,fmt:"$123Mds",a:85,ct:"Mexique",gr:"America Movil",sec:"Telecom, Infra",strat:"Monopole telecom Mexique. Diversification infrastructure.",vid:"4F4qzPbcFzM"},
+    {id:"ballmer",n:"Steve Ballmer",f:119,fmt:"$119Mds",a:69,ct:"US",gr:"Microsoft (ex-CEO)",sec:"Technologie, Sport",strat:"Actions Microsoft conservees. LA Clippers (NBA).",vid:"5qLjgJ5SYrg"},
+    {id:"bloomberg",n:"Michael Bloomberg",f:109,fmt:"$109Mds",a:83,ct:"US",gr:"Bloomberg LP",sec:"Data, Media",strat:"Terminal Bloomberg indispensable Wall Street. Philanthropie.",vid:"4F4qzPbcFzM"},
+    {id:"zhao",n:"Changpeng Zhao",f:108,fmt:"$108Mds",a:48,ct:"Canada",gr:"Binance",sec:"Crypto",strat:"Plus grand exchange crypto mondial. Pionnier DeFi.",vid:"s9W9EKoIhY4"},
+    {id:"peterffy",n:"Thomas Peterffy",f:106,fmt:"$106Mds",a:81,ct:"US",gr:"Interactive Brokers",sec:"Courtage",strat:"Pionnier trading electronique. Plateforme utilisee mondialement.",vid:"4F4qzPbcFzM"},
+    {id:"bettencourt",n:"Francoise Bettencourt",f:94,fmt:"$94Mds",a:71,ct:"France",gr:"L'Oreal",sec:"Cosmetiques",strat:"Heritiere L'Oreal. Leader mondial cosmetiques.",vid:"sNqMIBBzXh8"},
+    {id:"ambani",n:"Mukesh Ambani",f:91,fmt:"$91Mds",a:68,ct:"Inde",gr:"Reliance Industries",sec:"Telecom, Energie",strat:"Transformation en geant numerique avec Jio. Diversification massive.",vid:"bNKj1LkqcVg"},
+    {id:"adani",n:"Gautam Adani",f:90,fmt:"$90Mds",a:63,ct:"Inde",gr:"Adani Group",sec:"Infrastructure",strat:"Infrastructures critiques Inde : ports, aeroports, energie.",vid:"bNKj1LkqcVg"},
+    {id:"devsini",n:"Giancarlo Devasini",f:89,fmt:"$89Mds",a:61,ct:"Italie",gr:"Tether/Bitfinex",sec:"Crypto, Stablecoins",strat:"CFO Tether, plus grand stablecoin mondial.",vid:"s9W9EKoIhY4"},
+    {id:"son",n:"Masayoshi Son",f:83,fmt:"$83Mds",a:67,ct:"Japon",gr:"SoftBank",sec:"Investissements Tech",strat:"Vision Fund $100Mds. Paris audacieux IA et robotique.",vid:"bNKj1LkqcVg"},
+    {id:"koch_j",n:"Julia Koch",f:81,fmt:"$81Mds",a:63,ct:"US",gr:"Koch Industries",sec:"Energie, Chimie",strat:"Conglomerat industriel prive diversifie.",vid:"bNKj1LkqcVg"},
+    {id:"koch_c",n:"Charles Koch",f:74,fmt:"$74Mds",a:88,ct:"US",gr:"Koch Industries",sec:"Energie, Chimie",strat:"Long terme, reinvestissement profits, influence politique.",vid:"bNKj1LkqcVg"},
+    {id:"yanai",n:"Tadashi Yanai",f:70,fmt:"$70Mds",a:76,ct:"Japon",gr:"Fast Retailing",sec:"Mode, Retail",strat:"Uniqlo. Expansion mondiale. Innovation textile.",vid:"sNqMIBBzXh8"},
+    {id:"zhang",n:"Zhang Yiming",f:69,fmt:"$69Mds",a:41,ct:"Chine",gr:"ByteDance",sec:"Reseaux sociaux",strat:"Cree TikTok. Algorithme contenu le plus addictif au monde.",vid:"sNqMIBBzXh8"},
+    {id:"yass",n:"Jeff Yass",f:67,fmt:"$67Mds",a:67,ct:"US",gr:"Susquehanna",sec:"Trading, Invest.",strat:"Trading haute frequence. Investissement precoce ByteDance.",vid:"4F4qzPbcFzM"}
+];
+
+// ======== METIERS DATABASE (60+) ========
+function bmdb(){
+    const a=function(n,sec,sal,gro,trend,type,sr,desc,dip,adv,inc,vid,ent){
+        STORE.metiers[n.toLowerCase()]={n:n,sec:sec,sal:sal,gro:gro,trend:trend,type:type,sr:sr,desc:desc,dip:dip,adv:adv,inc:inc,vid:vid||"",ent:ent||""};
+    };
+    // Tech (20)
+    a("Ingenieur IA","Intelligence Artificielle","$73K-$210K","+37%","up","intellectuel",75,"Concoit deep learning, LLM, computer vision. Prime salariale 56%. Metier le plus recherche 2025.","Master/PhD IA. Python, PyTorch, transformers.","Salaire eleve, forte demande, teletravail, impact global.","Formation ardue, pression, veille permanente, bulle possible.","kUqA5VFpGM","Jensen Huang (Nvidia)");
+    a("Data Scientist","Science des Donnees","$60K-$190K","+34%","up","intellectuel",72,"Analyse donnees massives. BLS: +34% croissance 2024-2034.","Master stats/maths. Python, R, SQL, ML.","Tres forte demande, travail varie, secteurs divers.","Formation exigeante, reunions, dependance qualite donnees.","X3paOmcrTjQ","DJ Patil");
+    a("Expert en cybersecurite","Cybersecurite","$82K-$200K","+29%","up","intellectuel",80,"Protege systemes contre cyberattaques. +29% BLS.","Bac+3/5. CISSP, CEH. Reseaux, crypto.","Excellent salaire, securite emploi absolue.","Stress eleve, astreintes, responsabilite juridique.","inWWh6wQH_U","Eugene Kaspersky");
+    a("Architecte Cloud","Cloud Computing","$90K-$220K","+27%","up","intellectuel",74,"Concoit infra cloud (AWS/Azure/GCP). Rare.","Bac+3/5. Certs AWS. Docker, K8s, CI/CD.","Tres bien paye, strategique, teletravail.","Complexite extreme, responsabilite 24/7.","3hLmDSFMXQU","Werner Vogels");
+    a("Ingenieur DevOps","Developpement Logiciel","$75K-$190K","+22%","up","intellectuel",76,"Pont dev/ops. Automatisation CI/CD.","Bac+3/5. Docker, K8s, CI/CD, cloud.","Excellent salaire, forte demande.","Stress pannes, astreintes.","XrgkU9b5Rh8","");
+    a("Developpeur Full Stack","Developpement Logiciel","$58K-$160K","+16%","up","intellectuel",65,"Cree sites/web apps. Bootcamps acceptes.","Bac+2/5. HTML/CSS/JS, React/Vue, Node.js.","Accessible, teletravail, projets varies.","Concurrence junior, IA automatise 45%.","eKqY1uWBB4M","Matt Mullenweg");
+    a("Developpeur Backend","Developpement Logiciel","$72K-$170K","+14%","up","intellectuel",68,"API, bases de donnees, logique metier.","Bac+3/5. Java, Python, Go, SQL/NoSQL.","Bonne remuneration, indispensable.","Abstrait, parfois isole.","pBxRQqPemz8","");
+    a("Developpeur Mobile","Developpement Logiciel","$63K-$160K","+15%","up","intellectuel",66,"Apps iOS/Android. Swift, Kotlin, Flutter.","Bac+2/5. Swift/Kotlin, React Native.","Forte demande, apps en croissance.","Fragmentation devices, mises a jour.","pBxRQqPemz8","");
+    a("Developpeur Blockchain","Blockchain/Web3","$70K-$200K","+18%","up","intellectuel",55,"Smart contracts, DApps, protocoles DeFi.","Bac+3/5. Solidity, Rust, Web3.js.","Salaires eleves, secteur innovant.","Volatilite, risque reglementaire.","s9W9EKoIhY4","Vitalik Buterin");
+    a("Product Manager","Technologie","$65K-$180K","+17%","up","intellectuel",62,"Definit vision produit, priorise features.","Bac+4/5. MBA. Agile, UX, analytique.","Strategique, impact direct, bien paye.","Pression stakeholders, deadlines.","pBxRQqPemz8","");
+    a("UX/UI Designer","Design/Creation","$55K-$145K","+16%","up","intellectuel",52,"Design interfaces et experience utilisateur.","Bac+2/5. Figma, recherche UX, proto.","Creatif, demande croissante, distance.","Subjectivite, iterations nombreuses.","pBxRQqPemz8","");
+    a("Ingenieur Robotique","Robotique","$65K-$180K","+30%","up","intellectuel",62,"Concoit robots industriels et autonomes.","Bac+5. ROS, C++, Python, mecanique.","Innovant, forte demande, bien paye.","Complexe, investissements lourds.","b_TUJmEM9i4","Marc Raibert");
+    // Sante (12)
+    a("Medecin Specialiste","Sante","$80K-$500K","+7%","up","intellectuel",90,"Diagnostique et traite maladies. Prestige.","Bac+9/12. Concours medecine, internat.","Stabilite absolue, excellent salaire.","10-12 ans etudes, stress, burnout.","mu0dR8aHjCc","");
+    a("Chirurgien","Sante","$100K-$600K","+6%","up","intellectuel",85,"Operations chirurgicales. Robotique Da Vinci.","Bac+12. Internat chirurgie 5-6 ans.","Salaire parmi les plus eleves.","Etudes extremes, stress operationnel.","CKZJ0sDS8Rk","Dr. Ben Carson");
+    a("Dentiste","Sante","$60K-$220K","+5%","stable","intellectuel",78,"Soins dentaires. Profession liberale.","Bac+6/8. Concours, cabinet.","Bonne remuneration, independance.","Saturation urbaine, investissement.","cSJc8U68TNE","");
+    a("Infirmier","Sante","$35K-$80K","+9%","up","mixte",82,"Dispense soins. Metier en tension mondiale.","Bac+3 IFSI. Diplome d'Etat.","Emploi garanti, metier humain.","Salaires bas vs charge, burnout.","XmQ2rRJpV1Y","");
+    a("Psychologue","Sante/Social","$30K-$85K","+12%","up","intellectuel",55,"Aide patients. Demande post-COVID explose.","Bac+5 Master psycho. ADELI.","Metier humain, demande croissante.","Salaire modeste, emotionnel lourd.","rf8XOsIPNJ8","");
+    a("Kinesitherapeute","Sante","$35K-$90K","+10%","up","mixte",70,"Reeducation physique. Vieillissement = demande.","Bac+4/5. Concours.","Bonne demande, liberal possible.","Physique, salaire modeste debut.","","");
+    a("Pharmacien","Pharmacie/Sante","$50K-$145K","+5%","stable","intellectuel",76,"Delivre medicaments. Conseil patient.","Bac+6. Concours pharmacie.","Stable, metier de confiance.","Saturation, automatisation.","","");
+    a("Veterinaire","Sante animale","$45K-$160K","+8%","up","intellectuel",65,"Soigne animaux. Marche pets $150Mds.","Bac+6/7. Ecole veterinaire.","Passion, demande croissante.","Etudes longues, emotionnel.","","");
+    a("Nutritionniste","Sante","$30K-$85K","+12%","up","intellectuel",50,"Conseil alimentaire. Croissance sante preventive.","Bac+3/5. BTS Dietetique.","Demande croissante, liberal.","Concurrence, revenus variables.","","");
+    // Finance (8)
+    a("Analyste Financier","Finance","$60K-$180K","+9%","stable","intellectuel",68,"Evalue opportunites investissement.","Bac+5. CFA. Excel, Bloomberg.","Tres bien remunere, stimulant.","Horaires extremes, pression.","OgeNtC3wj-c","Warren Buffett");
+    a("Trader","Finance","$80K-$500K+","+3%","stable","intellectuel",35,"Achats/ventes actifs. Trading algorithmique.","Bac+5. Certif AMF. Reactivite.","Adrenaline, gains potentiels enormes.","Risque eleve, stress extreme.","","");
+    a("Gestionnaire de Patrimoine","Finance","$55K-$250K","+12%","up","intellectuel",58,"Conseil investissements prives.","Bac+5. CGP. Relation client.","Bien paye, relationnel, independance.","Clientele difficile a constituer.","","");
+    a("Actuaire","Finance/Assurance","$75K-$220K","+22%","up","intellectuel",82,"Modelise risques financiers. Rare.","Bac+5. Master actuarial. Maths.","Excellent salaire, stable.","Mathematiques lourdes.","","");
+    a("Comptable","Finance","$42K-$110K","+5%","stable","intellectuel",75,"Tient les comptes. Stable.","Bac+3/5. DCG/DSCG.","Stabilite, liberal possible.","Routinier, automatisation.","j0EA3rOigM","");
+    // Droit (3)
+    a("Avocat","Droit","$40K-$300K","+4%","stable","intellectuel",60,"Defend interets juridiques.","Bac+5. CRFPA. Ecole avocats.","Prestige, salaire eleve en fin carriere.","Concurrence extreme, stress.","GfQftoBnR4","");
+    a("Notaire","Droit","$45K-$200K","+3%","stable","intellectuel",72,"Authentifie actes juridiques.","Bac+5. Master notarial.","Monopole legal, revenus stables.","Etudes longues, numerus clausus.","","");
+    a("Magistrat","Droit/Justice","$40K-$130K","+2%","stable","intellectuel",55,"Juge les affaires. Independance.","Concours ENM. Ecole magistrature.","Independance, prestige.","Salaire modeste vs prive, mutations.","","");
+    // Politique/Social (6)
+    a("Diplomate","Politique/Diplomatie","$60K-$210K","+5%","stable","intellectuel",25,"Represente pays a l'etranger. Tres selectif.","Concours Quai d'Orsay. Langues.","Prestige, voyages, impact geopolitique.","Extremement selectif, mobilite forcee.","GfQftoBnR4","Kofi Annan");
+    a("Analyste Politique","Politique/Social","$55K-$130K","+6%","stable","intellectuel",40,"Analyse politiques publiques et enjeux.","Bac+5. Master politiques publiques.","Impact societal, travail varie.","Precarite, debouches limites.","","");
+    a("Travailleur Social","Social/ONG","$30K-$75K","+7%","stable","mixte",55,"Aide populations vulnerables.","Bac+3/5. DEASS.","Metier humain, impact direct.","Salaire bas, charge emotionnelle.","","");
+    a("Agent Humanitaire","Social/ONG","$30K-$90K","+10%","up","mixte",30,"Aide populations en crise. ONG internationales.","Bac+3/5. Master humanitaire.","Sens, voyages, impact.","Danger, precarite, stress.","bf0EwUCFaNY","");
+    a("Lobbyiste","Politique/Affaires publiques","$70K-$200K","+8%","stable","intellectuel",35,"Influence decisions politiques pour interets prives.","Bac+5. Droit/Sciences Po. Reseau.","Bien paye, influence, reseau.","Ethique discutable, pression.","","");
+    a("Fonctionnaire International","Politique/Diplomatie","$55K-$170K","+4%","stable","intellectuel",40,"Travaille pour ONU, UE, FMI, Banque Mondiale.","Bac+5. Master RI. Concours.","Stabilite, avantages, impact global.","Bureaucratie, lenteur, mutations.","","");
+    // Artisanat (8)
+    a("Electricien","Artisanat/Construction","$32K-$78K","+9%","up","manuel",72,"Installe systemes electriques. Boom transition energetique.","CAP/Bac Pro. Habilitation electrique.","Forte demande, independance.","Penibilite, risque electrique.","qKQMQB5Yl0A","");
+    a("Plombier","Artisanat/Construction","$30K-$72K","+7%","stable","manuel",70,"Installe reseaux eau/gaz. Indispensable.","CAP/Bac Pro plomberie.","Indispensable, independance.","Penibilite, astreintes.","tVlxMAy6I8M","");
+    a("Macon","Artisanat/Construction","$28K-$62K","+5%","stable","manuel",55,"Construit fondations et murs.","CAP/Bac Pro maconnerie.","Concret, equipe.","Penibilite extreme, salaire modeste.","","");
+    a("Soudeur","Artisanat/Industrie","$32K-$82K","+6%","stable","manuel",62,"Assemble pieces metalliques.","CAP/Bac Pro soudure. Certifications.","Demande stable, specialisations.","Conditions difficiles, sante.","","");
+    a("Menuisier","Artisanat","$28K-$65K","+5%","stable","manuel",58,"Travaille le bois. Metier valorise.","CAP/Bac Pro menuiserie.","Concret, creatif, independance.","Physique, outillage couteux.","","");
+    a("Boulanger","Artisanat/Alimentation","$24K-$55K","+4%","stable","manuel",50,"Fabrique pain et viennoiseries.","CAP Boulangerie.","Metier noble, independance.","Horaires nuit, penibilite.","","");
+    a("Cuisinier","Artisanat/Restauration","$22K-$65K","+5%","stable","manuel",45,"Prepare plats. Metier passion.","CAP/Bac Pro cuisine.","Passion, creativite, opportunites.","Stress, horaires, penibilite.","","");
+    a("Coiffeur","Artisanat/Beaute","$20K-$55K","+4%","stable","manuel",48,"Coiffe et conseille clients.","CAP Coiffure.","Independance, relationnel.","Physique, salaire modeste employe.","","");
+    // Transport (3)
+    a("Pilote de Ligne","Transport","$60K-$280K","+6%","stable","intellectuel",85,"Transporte passagers. Prestige.","ATPL. Ecole agreee. Medical.","Excellent salaire, voyages.","Cout formation extreme, eloignement.","vQE6KdMkF4","");
+    a("Chauffeur Routier","Transport","$28K-$60K","-3%","declining","manuel",60,"Transporte marchandises. Menace automatisation.","Permis PL. FIMO/FCO.","Emploi garanti court terme.","Vie perturbee, camions autonomes.","sA_3T5QGZO8","");
+    a("Controleur Aerien","Transport","$65K-$190K","+4%","stable","intellectuel",78,"Guide avions. Stress extreme.","Concours DGAC. Formation 3 ans.","Excellent salaire, retraite precoce.","Stress extreme, responsabilite.","","");
+    // Agriculture/Alimentation
+    a("Agriculteur","Agriculture","$18K-$80K","-2%","declining","manuel",35,"Cultive terre. Mutation AgriTech.","Bac Pro/BTS agricole. Foncier.","Independance, vie au grand air.","Revenus aleatoires, penibilite extreme.","bf0EwUCFaNY","");
+    a("Ingenieur Agronome","AgriTech","$45K-$120K","+10%","up","intellectuel",58,"Optimise cultures et rendements.","Bac+5. Master agronomie.","Innovation, impact alimentaire.","Pression climatique, resultats lents.","","");
+    // Media/Creation
+    a("Journaliste","Media","$22K-$75K","-4%","declining","intellectuel",30,"Informe le public. Secteur en crise.","Bac+3/5. Ecole journalisme.","Impact societal, rencontres.","Salaire bas, precarite, IA menace.","","");
+    a("Createur de Contenu","Media/Creation","$0-$5M+","+25%","up","mixte",5,"Cree contenu reseaux sociaux.","Aucun diplome. Talent.","Revenus potentiels enormes, liberte.","Precarite extreme, 99% echouent.","","");
+    a("Realisateur","Media/Cinema","$35K-$250K","+5%","stable","intellectuel",20,"Realise films, pubs, contenus.","Bac+3/5. Ecole cinema ou autodidacte.","Artistique, prestige.","Precarite, reseau indispensable.","","");
+    a("Decorateur d'Interieur","Design/Immobilier","$30K-$95K","+8%","stable","mixte",48,"Amenage espaces interieurs.","Bac+2/5. Ecole design.","Creatif, independance.","Concurrence, clients exigeants.","","");
+    // Sport
+    a("Entraineur Sportif","Sport","$25K-$120K","+8%","up","mixte",35,"Entraine athletes/equipes.","DEJEPS. Diplomes federaux.","Passion, impact sante.","Revenus variables, competition.","","");
+    a("Arbitre Sportif","Sport","$30K-$200K","+3%","stable","mixte",20,"Arbitre competitions.","Formation federale.","Passion, reconnaissance.","Pression, critiques, blessures.","","");
+    // Securite
+    a("Policier","Securite Publique","$28K-$65K","+3%","stable","mixte",70,"Protege citoyens. Metier a risque.","Concours. Ecole police.","Stabilite, sens service, retraite.","Danger, stress, impopularite.","","");
+    a("Militaire","Defense","$25K-$80K","+2%","stable","mixte",60,"Defend le territoire national.","Concours. Ecoles militaires.","Stabilite, camaraderie, retraite.","Danger, mutations, hierarchie.","","");
+    a("Sapeur-Pompier","Securite","$28K-$65K","+5%","stable","mixte",65,"Sauve vies et biens. Respecte.","Concours. Formation SDIS.","Utile, respecte, adrenalin.","Danger, stress, horaires.","","");
+    a("Detective Prive","Securite/Investigation","$30K-$100K","+6%","stable","mixte",40,"Enquetes privees. Filatures.","Licence. Formation specifique.","Independance, variete.","Risques, irregulier, juridique.","","");
+    // Architecture
+    a("Architecte","Architecture/Construction","$50K-$130K","+8%","stable","intellectuel",52,"Concoit batiments. Creatif et technique.","Bac+5 archi. HMONP. BIM.","Creatif, prestige, liberal possible.","Etudes longues, salaire bas debut.","mXjF9BRpOoY","Jean Nouvel");
+    // Education
+    a("Enseignant","Education","$28K-$75K","+3%","stable","intellectuel",62,"Transmet savoir. Metier noble.","Bac+5 + concours. CRPE/CAPES.","Metier humain, vacances, stabilite.","Salaire bas, conditions difficiles.","","");
+    a("Professeur d'Universite","Education/Recherche","$45K-$150K","+5%","stable","intellectuel",45,"Enseigne et cherche. Prestige academique.","PhD + concours. HDR.","Liberte intellectuelle, prestige.","Parcours long et selectif.","","");
+    // Environnement
+    a("Ingenieur Environnemental","Environnement/EnR","$50K-$130K","+15%","up","intellectuel",65,"Protege environnement. Impact climat.","Bac+5. Master environnement.","Sens, innovation, demande croissante.","Reglementation complexe.","","");
+    a("Installateur Solaire","Energie/Artisanat","$35K-$80K","+42%","up","manuel",68,"Installe panneaux solaires. Explosion demande.","CAP/Bac Pro electricite. Certif PV.","Croissance explosive, independance.","Travail toiture, meteo.","","");
+    a("Technicien Eolien","Energie/Artisanat","$50K-$90K","+50%","up","mixte",72,"Maintenance eoliennes. +50% croissance BLS.","Bac Pro + certif. Hauteur.","Meilleure croissance BLS, bien paye.","Hauteur, isolement, meteo.","","");
+    // Commerce/Vente
+    a("Agent Immobilier","Immobilier","$30K-$160K","+8%","stable","mixte",42,"Vend/loue biens immobiliers.","Carte professionnelle. Formation.","Independance, gains potentiels.","Concurrence, revenus irreguliers.","","");
+    a("Commercial","Commerce/Vente","$28K-$120K","+5%","stable","mixte",48,"Vend produits/services.","Bac+2/5. Formation interne.","Accessible, commissions, evolutif.","Pression chiffre, rejet frequent.","","");
+    // Evenementiel
+    a("Organisateur d'Evenements","Evenementiel","$30K-$90K","+12%","up","mixte",45,"Organise evenements prives/pro.","Bac+2/5. BTS evenementiel.","Creatif, social, variete.","Stress, horaires decales.","","");
+}
+bmdb();
+STORE.metiersList = Object.keys(STORE.metiers);
+
+// ======== VIDEO FALLBACK ========
+const VIDEO_FALLBACKS = {
+    default: "dQw4w9WgXcQ",
+    politics: "https://www.dailymotion.com/embed/video/x8j0j4q",
+    social: "https://www.dailymotion.com/embed/video/x7z0k5c"
+};
+function getVideoEmbed(vid, domain) {
+    if (vid && vid.length > 5) {
+        if (vid.includes('dailymotion') || vid.includes('vimeo')) return vid;
+        return `https://www.youtube.com/embed/${vid}`;
+    }
+    // Fallback: try DailyMotion or Vimeo based on domain
+    if (domain === 'politique' || domain === 'social') {
+        return `https://www.dailymotion.com/embed/video/x8j0j4q`;
+    }
+    return `https://www.youtube.com/embed/${VIDEO_FALLBACKS.default}`;
+}
+function getVideoHtml(vid, domain) {
+    const url = getVideoEmbed(vid, domain);
+    if (!vid || vid.length < 5) {
+        return `<div style="background:var(--surface2);border-radius:12px;padding:2rem;text-align:center;color:var(--text2)">
+            <p style="font-size:1.5rem;margin-bottom:0.5rem">Contenu video indisponible</p>
+            <p>Aucune video specifique trouvee pour ce sujet. Consultez des sources externes.</p>
+            <a href="https://www.youtube.com/results?search_query=${encodeURIComponent(domain||'marché mondial')}" target="_blank" class="btn btn-outline btn-sm" style="margin-top:0.5rem">Rechercher sur YouTube</a>
+        </div>`;
+    }
+    return `<iframe src="${url}" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0" allowfullscreen loading="lazy"></iframe>`;
+}
+
+// ======== NAVIGATION ========
+function nav(page) {
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    const pg=document.getElementById('page-'+page);
+    if(pg)pg.classList.add('active');
+    document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));
+    const lk=document.querySelector(`[data-page="${page}"]`);
+    if(lk)lk.classList.add('active');
+    document.getElementById('navLinks').classList.remove('open');
+    window.scrollTo({top:0,behavior:'smooth'});
+    if(page==='domains')renderDomains();
+    if(page==='billionaires')renderBillionaires();
+    if(page==='metiers'){renderTopM();renderAllMTags();}
+    if(page==='rapport')populateSelects();
+    if(page==='home'&&document.getElementById('topSectors').children.length===0)renderTopSectors();
+}
+function toggleMenu(){document.getElementById('navLinks').classList.toggle('open')}
+function toggleTheme(){
+    STORE.theme=STORE.theme==='dark'?'light':'dark';
+    document.documentElement.setAttribute('data-theme',STORE.theme);
+    localStorage.setItem('jxTheme',STORE.theme);
+    document.getElementById('themeBtn').innerHTML=STORE.theme==='dark'?'&#9790;':'&#9728;';
+}
+document.documentElement.setAttribute('data-theme',STORE.theme);
+document.getElementById('themeBtn').innerHTML=STORE.theme==='dark'?'&#9790;':'&#9728;';
+
+function notify(m,t){
+    const c=document.getElementById('notifContainer'),el=document.createElement('div');
+    el.className='notif';el.style.borderColor=t==='success'?'var(--green)':t==='error'?'var(--red)':'var(--accent)';
+    el.innerHTML=`<strong>${t==='success'?'Succes':t==='error'?'Erreur':'Info'}</strong><br>${m}`;
+    c.appendChild(el);setTimeout(()=>{el.style.opacity='0';el.style.transition='opacity .3s';setTimeout(()=>el.remove(),300)},3500);
+}
+
+// ======== FAVORITES ========
+function tFav(type,id){
+    const k=type+':'+id,idx=STORE.favs.indexOf(k);
+    if(idx>-1){STORE.favs.splice(idx,1);notify('Retire des favoris','error')}
+    else{STORE.favs.push(k);notify('Ajoute aux favoris!','success')}
+    localStorage.setItem('jxFav',JSON.stringify(STORE.favs));updateFB();
+}
+function iFav(type,id){return STORE.favs.includes(type+':'+id)}
+function updateFB(){
+    const b=document.getElementById('favBadge');
+    if(STORE.favs.length===0){b.style.display='none'}else{b.style.display='flex';b.textContent=STORE.favs.length}
+}
+function showFavs(){
+    if(STORE.favs.length===0){notify('Aucun favori. Cliquez sur les etoiles!','error');return}
+    let h='<div class="modal-overlay" onclick="this.remove()"><div class="modal" onclick="event.stopPropagation()"><button class="modal-close" onclick="this.parentElement.parentElement.remove()">&times;</button><h2>Vos Favoris</h2>';
+    STORE.favs.forEach(f=>{
+        const[type,id]=f.split(':');
+        if(type==='domain'){const d=STORE.domains.find(x=>x.id===id);if(d)h+=`<div class="card" style="margin:0.4rem 0;cursor:pointer" onclick="closeModal();nav('domains');showDD('${d.id}')"><strong>${d.n}</strong> - ${d.mkt} - +${d.g25}%</div>`}
+        else if(type==='billionaire'){const b=STORE.billionaires.find(x=>x.id===id);if(b)h+=`<div class="card" style="margin:0.4rem 0;cursor:pointer" onclick="closeModal();nav('billionaires')"><strong>${b.n}</strong> - ${b.fmt}</div>`}
+        else if(type==='metier'){const m=STORE.metiers[id];if(m)h+=`<div class="card" style="margin:0.4rem 0;cursor:pointer" onclick="closeModal();nav('metiers');document.getElementById('metierSearch').value='${m.n}';searchMetier()"><strong>${m.n}</strong> - ${m.sal}</div>`}
+    });
+    h+='</div></div>';document.body.insertAdjacentHTML('beforeend',h);
+}
+function closeModal(){const m=document.querySelector('.modal-overlay');if(m)m.remove()}
+function shareSite(){
+    if(navigator.share)navigator.share({title:'Jex-analytique',text:'Decouvrez secteurs et metiers rentables',url:location.href});
+    else{navigator.clipboard.writeText(location.href);notify('Lien copie!','success')}
+}
+
+// ======== HOME ========
+function renderTopSectors(){
+    const s=STORE.domains.filter((_,i)=>i<20).map((d,i)=>({n:d.n,g:d.g25,c:d.c,r:i+1,mkt:d.mkt,id:d.id}));
+    document.getElementById('topSectors').innerHTML=s.map(d=>`
+        <div class="card" style="cursor:pointer" onclick="document.getElementById('homeSearch').value='${d.n}';searchHome()">
+            <div style="display:flex;justify-content:space-between;align-items:start"><h3 style="font-size:0.88rem;margin:0">${d.n}</h3><span class="tag tag-blue">#${d.r}</span></div>
+            <div style="margin:0.3rem 0"><span style="color:var(--green);font-weight:700;font-size:1.05rem">+${d.g}%</span></div>
+            <div style="color:var(--text2);font-size:0.73rem">${d.mkt}</div>
+            <button class="btn btn-outline btn-sm" style="margin-top:0.3rem;width:100%;font-size:0.7rem" onclick="event.stopPropagation();tFav('domain','${d.id}')">${iFav('domain',d.id)?'★':'☆'}</button>
+        </div>`).join('');
+}
+function suggestHome(){
+    const q=document.getElementById('homeSearch').value.toLowerCase().trim();
+    const c=document.getElementById('homeSuggestions');
+    if(q.length<2){c.innerHTML='';return}
+    const m=STORE.domains.filter(d=>d.n.toLowerCase().includes(q)).slice(0,8);
+    c.innerHTML=m.map(d=>`<span class="tag tag-blue tag-clic" onclick="document.getElementById('homeSearch').value='${d.n}';searchHome()">${d.n}</span>`).join('');
+}
+function searchHome(){
+    const q=document.getElementById('homeSearch').value.trim();
+    if(!q){notify('Entrez un secteur','error');return}
+    const d=STORE.domains.find(x=>x.n.toLowerCase().includes(q.toLowerCase()));
+    if(!d){
+        const mt=Object.values(STORE.metiers).filter(m=>m.n.toLowerCase().includes(q.toLowerCase()));
+        if(mt.length>0){
+            document.getElementById('homeResults').innerHTML=`<div class="result-panel"><h2>Metiers pour "${q}"</h2><div class="grid grid-2">${mt.slice(0,8).map(m=>`<div class="card" style="cursor:pointer" onclick="nav('metiers');document.getElementById('metierSearch').value='${m.n}';searchMetier()"><strong>${m.n}</strong><br><span class="tag tag-green">${m.sal}</span><span class="tag tag-blue">${m.gro}</span></div>`).join('')}</div></div>`;
+            return;
+        }
+        document.getElementById('homeResults').innerHTML=`<div class="card" style="text-align:center;padding:2rem"><h3>Aucun resultat pour "${q}"</h3><p style="color:var(--text2)">Essayez: IA, Semi-conducteurs, FinTech, Cloud, Cybersecurite...</p></div>`;
+        return;
+    }
+    renderDomainDetail(d,'homeResults');
+}
+function renderDomainDetail(domain,cid){
+    const c=document.getElementById(cid),bw=Math.min(domain.g25*2.2,95);
+    c.innerHTML=`
+    <div class="result-panel">
+        <div class="card" style="margin-bottom:0.8rem">
+            <div style="display:flex;gap:0.8rem;flex-wrap:wrap;align-items:flex-start">
+                <div style="width:110px;height:100px;background:linear-gradient(135deg,${domain.c}33,${domain.c}11);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:700;color:${domain.c};flex-shrink:0">${domain.ic}</div>
+                <div style="flex:1;min-width:200px">
+                    <div style="display:flex;justify-content:space-between"><h2 style="margin:0">${domain.n}</h2><button class="btn btn-outline btn-sm btn-icon" onclick="tFav('domain','${domain.id}')">${iFav('domain',domain.id)?'★':'☆'}</button></div>
+                    <p style="color:var(--text2);font-size:0.82rem">${domain.desc}</p>
+                    <div style="display:flex;gap:0.2rem;flex-wrap:wrap;margin:0.4rem 0">
+                        <span class="tag tag-green">CAGR: +${domain.g25}%</span><span class="tag tag-blue">Marche: ${domain.mkt}</span>
+                        <span class="tag tag-purple">2030: ${domain.mk30}</span><span class="tag" style="background:rgba(${domain.sr>=70?'46,204,113':domain.sr>=40?'243,156,18':'231,76,60'},0.12);color:${domain.sr>=70?'var(--green)':domain.sr>=40?'var(--orange)':'var(--red)'}">Reussite: ${domain.sr}%</span>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top:0.6rem">
+                <div class="bar-row"><span class="bar-label">2022</span><div class="bar-track"><div class="bar-fill" style="width:${domain.g22*2.2}%;background:${domain.c}88">+${domain.g22}%</div></div></div>
+                <div class="bar-row"><span class="bar-label">2025</span><div class="bar-track"><div class="bar-fill" style="width:${bw}%;background:${domain.c}">+${domain.g25}%</div></div></div>
+                <div class="bar-row"><span class="bar-label">2030 proj.</span><div class="bar-track"><div class="bar-fill" style="width:${domain.g30*2.2}%;background:${domain.c}44">+${domain.g30}%</div></div></div>
+            </div>
+            <p style="margin-top:0.4rem;font-size:0.8rem"><strong>Entrepreneurs:</strong> ${domain.ent}</p>
+        </div>
+        <div class="chart-wrap" style="margin-bottom:0.8rem"><canvas id="chart_${domain.id}"></canvas></div>
+        <div class="grid grid-2" style="margin-bottom:0.8rem">
+            ${domain.mt.filter((_,i)=>i<6).map((m,i)=>`
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:0.4rem 0.6rem;background:var(--bg);border-radius:var(--radius-sm);cursor:pointer" onclick="nav('metiers');document.getElementById('metierSearch').value='${m[0]}';searchMetier()">
+                    <div><strong>${i+1}. ${m[0]}</strong><br><span style="font-size:0.7rem;color:var(--text2)">${m[4]==='intellectuel'?'Intellectuel':m[4]==='manuel'?'Manuel':'Mixte'}</span></div>
+                    <div style="text-align:right"><span style="color:var(--green);font-size:0.8rem">${m[1]}</span><br><span style="font-size:0.7rem;color:${m[3]==='up'?'var(--green)':m[3]==='declining'?'var(--red)':'var(--text2)'}">${m[2]} ${m[3]==='up'?'↑':m[3]==='declining'?'↓':'→'}</span></div>
+                </div>`).join('')}
+        </div>
+        <div style="margin-bottom:0.8rem"><h3>Video</h3><div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px">${getVideoHtml(domain.vid, domain.id)}</div></div>
+        <div style="display:flex;gap:0.4rem;flex-wrap:wrap"><button class="btn btn-primary btn-sm" onclick="downloadDomainPDF('${domain.id}')">PDF Domaine</button><button class="btn btn-outline btn-sm" onclick="downloadDomainMPDF('${domain.id}')">PDF Metiers</button><button class="btn btn-outline btn-sm" onclick="downloadHowPDF('${domain.id}')">Comment debuter</button></div>
+    </div>`;
+    setTimeout(()=>drawDChart(domain),150);
+}
+function drawDChart(domain){
+    const canvas=document.getElementById('chart_'+domain.id);if(!canvas)return;
+    const ctx=canvas.getContext('2d');canvas.width=canvas.parentElement.clientWidth-25;canvas.height=240;
+    const w=canvas.width,h=canvas.height,pad={t:28,r:15,b:40,l:50},cw=w-pad.l-pad.r,ch=h-pad.t-pad.b;
+    const yrs=['2022','2023','2024','2025','2030p'],vals=[domain.g22,domain.g23,domain.g24,domain.g25,domain.g30];
+    const max=Math.max(...vals)+10;
+    ctx.fillStyle=getComputedStyle(document.body).getPropertyValue('--bg');ctx.fillRect(0,0,w,h);
+    for(let i=0;i<=4;i++){const y=pad.t+(ch/4)*i;ctx.strokeStyle=getComputedStyle(document.body).getPropertyValue('--border');ctx.beginPath();ctx.moveTo(pad.l,y);ctx.lineTo(w-pad.r,y);ctx.stroke();ctx.fillStyle=getComputedStyle(document.body).getPropertyValue('--text2');ctx.font='9px Segoe UI';ctx.textAlign='right';ctx.fillText(Math.round(max-(max/4)*i)+'%',pad.l-6,y+3)}
+    const bw=cw/5*0.5,gap=cw/5*0.5;
+    vals.forEach((v,i)=>{
+        const x=pad.l+(cw/5)*i+gap/2,bh=(v/max)*ch,y=h-pad.b-bh;
+        const grad=ctx.createLinearGradient(x,y,x,y+bh);grad.addColorStop(0,domain.c);grad.addColorStop(1,domain.c+'44');
+        ctx.fillStyle=grad;rndRect(ctx,x,y,bw,bh,4);ctx.fill();
+        ctx.fillStyle=getComputedStyle(document.body).getPropertyValue('--text');ctx.font='bold 9px Segoe UI';ctx.textAlign='center';ctx.fillText(v+'%',x+bw/2,y-7);
+        ctx.fillStyle=getComputedStyle(document.body).getPropertyValue('--text2');ctx.font='8px Segoe UI';ctx.fillText(yrs[i],x+bw/2,h-pad.b+14);
+    });
+}
+function rndRect(ctx,x,y,w,h,r){if(typeof r==='number')r={tl:r,tr:r,br:r,bl:r};ctx.beginPath();ctx.moveTo(x+r.tl,y);ctx.lineTo(x+w-r.tr,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r.tr);ctx.lineTo(x+w,y+h-r.br);ctx.quadraticCurveTo(x+w,y+h,x+w-r.br,y+h);ctx.lineTo(x+r.bl,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r.bl);ctx.lineTo(x,y+r.tl);ctx.quadraticCurveTo(x,y,x+r.tl,y);ctx.closePath();}
+
+// ======== 3D GLOBE WITH CONTINENTS ========
+let gAX=0,gAY=0.3,gAR=true,gDrag=false,gLX=0;
+const globeMarkers=[
+    {lat:37.4,lon:-122.1,c:'#4f8fff',l:'Silicon Valley',d:'IA/Technologie',p:'$407Mds',s:'+37.3%'},
+    {lat:40.7,lon:-74.0,c:'#4f8fff',l:'New York',d:'Finance/FinTech',p:'$310Mds',s:'+17%'},
+    {lat:51.5,lon:-0.1,c:'#2ecc71',l:'Londres',d:'FinTech/Cloud',p:'$210Mds',s:'+19%'},
+    {lat:35.7,lon:139.7,c:'#4f8fff',l:'Tokyo',d:'Robotique/Semi-conducteurs',p:'$180Mds',s:'+25%'},
+    {lat:22.3,lon:114.2,c:'#2ecc71',l:'Hong Kong',d:'Blockchain/Finance',p:'$95Mds',s:'+15%'},
+    {lat:48.9,lon:2.3,c:'#2ecc71',l:'Paris',d:'Luxe/Aeronautique',p:'$130Mds',s:'+11%'},
+    {lat:52.5,lon:13.4,c:'#2ecc71',l:'Berlin',d:'Energie verte/Startups',p:'$85Mds',s:'+22%'},
+    {lat:-33.9,lon:151.2,c:'#95a5a6',l:'Sydney',d:'AgriTech/Mines',p:'$45Mds',s:'+8%'},
+    {lat:39.9,lon:116.4,c:'#4f8fff',l:'Beijing',d:'IA/5G/Quantique',p:'$250Mds',s:'+32%'},
+    {lat:25.2,lon:55.3,c:'#2ecc71',l:'Dubai',d:'Immobilier/Crypto',p:'$60Mds',s:'+18%'},
+    {lat:19.4,lon:-99.1,c:'#95a5a6',l:'Mexico',d:'Manufacture',p:'$35Mds',s:'+6%'},
+    {lat:-23.5,lon:-46.6,c:'#e74c3c',l:'Sao Paulo',d:'Petrole/Agri (volatil)',p:'$28Mds',s:'-2%'},
+    {lat:55.7,lon:37.6,c:'#e74c3c',l:'Moscou',d:'Energie (sanctions)',p:'$20Mds',s:'-8%'},
+    {lat:28.6,lon:77.2,c:'#4f8fff',l:'New Delhi',d:'IT/Outsourcing',p:'$95Mds',s:'+20%'},
+    {lat:1.3,lon:103.8,c:'#2ecc71',l:'Singapour',d:'Hub Financier',p:'$120Mds',s:'+16%'},
+    {lat:-26.2,lon:28.0,c:'#95a5a6',l:'Johannesburg',d:'Mines/Finance',p:'$18Mds',s:'+4%'},
+    {lat:41.0,lon:29.0,c:'#2ecc71',l:'Istanbul',d:'Construction/Textile',p:'$42Mds',s:'+9%'},
+    {lat:37.5,lon:127.0,c:'#4f8fff',l:'Seoul',d:'Semi-conducteurs/Tech',p:'$165Mds',s:'+23%'}
+];
+
+// Simplified continent outlines (lat/lon pairs)
+const continents = {
+    northAmerica: [[70,-168],[68,-140],[60,-140],[50,-130],[40,-125],[30,-116],[25,-110],[20,-105],[15,-90],[10,-84],[8,-80],[15,-75],[25,-80],[30,-81],[35,-76],[40,-74],[45,-70],[50,-65],[55,-60],[60,-65],[65,-70],[70,-90],[70,-130],[70,-168]],
+    southAmerica: [[12,-72],[5,-77],[0,-80],[-5,-81],[-10,-77],[-15,-76],[-22,-70],[-25,-65],[-30,-58],[-32,-52],[-35,-55],[-40,-62],[-45,-68],[-50,-72],[-52,-70],[-55,-68],[-55,-65],[-50,-57],[-42,-50],[-35,-48],[-30,-50],[-22,-55],[-15,-60],[-8,-65],[-2,-68],[5,-65],[8,-60],[12,-72]],
+    europe: [[70,-20],[68,5],[65,10],[62,12],[58,8],[55,12],[50,15],[44,20],[40,26],[36,30],[42,35],[45,38],[48,42],[52,45],[55,50],[58,55],[60,60],[65,55],[68,45],[70,30],[70,-20]],
+    africa: [[37,10],[35,15],[30,20],[22,30],[15,32],[5,35],[-5,35],[-10,40],[-18,38],[-25,35],[-30,32],[-35,25],[-35,20],[-30,15],[-22,12],[-15,15],[-5,10],[0,5],[5,0],[10,5],[15,8],[20,10],[30,10],[37,10]],
+    asia: [[70,30],[70,60],[68,90],[65,120],[60,140],[55,145],[45,140],[35,135],[30,130],[25,125],[22,120],[15,110],[10,105],[5,100],[0,100],[-5,105],[-10,110],[-8,115],[-5,120],[0,125],[5,130],[10,140],[15,145],[20,145],[25,145],[35,145],[45,145],[55,140],[60,135],[65,120],[70,80],[70,30]],
+    australia: [[-12,130],[-15,135],[-20,140],[-25,145],[-30,150],[-35,150],[-38,148],[-35,140],[-32,135],[-28,130],[-25,125],[-22,120],[-18,118],[-15,120],[-12,125],[-12,130]]
+};
+
+function initGlobe(){
+    const canvas=document.getElementById('globeCanvas');if(!canvas)return;
+    const container=document.getElementById('globe-wrap');
+    canvas.width=container.clientWidth;canvas.height=container.clientHeight;
+    const tip=document.getElementById('globeTip');
+
+    canvas.addEventListener('mousedown',e=>{gDrag=true;gAR=false;gLX=e.clientX});
+    canvas.addEventListener('mousemove',e=>{
+        if(gDrag){gAX+=(e.clientX-gLX)*0.005;gLX=e.clientX}
+        const rect=canvas.getBoundingClientRect(),mx=e.clientX-rect.left,my=e.clientY-rect.top;
+        const cx=canvas.width/2,cy=canvas.height/2,r=Math.min(canvas.width,canvas.height)*0.36;
+        let found=null,minD=28;
+        globeMarkers.forEach(m=>{
+            const latR=m.lat*Math.PI/180,lonR=(m.lon+gAX*180/Math.PI)*Math.PI/180;
+            const x3=Math.cos(latR)*Math.cos(lonR),y3=Math.cos(latR)*Math.sin(lonR),z3=Math.sin(latR);
+            const cosY=Math.cos(gAY),sinY=Math.sin(gAY),x3r=x3*cosY+z3*sinY,z3r=-x3*sinY+z3*cosY;
+            if(z3r>-0.15){const sx=cx+x3r*r,sy=cy-y3*r*0.85;const d=Math.hypot(mx-sx,my-sy);if(d<minD){minD=d;found={...m,x:sx,y:sy};}}
+        });
+        if(found){tip.style.display='block';tip.style.left=(found.x+14)+'px';tip.style.top=(found.y-14)+'px';tip.innerHTML=`<strong>${found.l}</strong><br>${found.d}<br>Marche: ${found.p} | ${found.s}`}
+        else tip.style.display='none';
+    });
+    canvas.addEventListener('mouseup',()=>{gDrag=false;setTimeout(()=>gAR=true,2000)});
+    canvas.addEventListener('mouseleave',()=>{gDrag=false;setTimeout(()=>gAR=true,2000);tip.style.display='none'});
+    canvas.addEventListener('touchstart',e=>{gDrag=true;gAR=false;gLX=e.touches[0].clientX;e.preventDefault()});
+    canvas.addEventListener('touchmove',e=>{if(gDrag){gAX+=(e.touches[0].clientX-gLX)*0.005;gLX=e.touches[0].clientX}e.preventDefault()});
+    canvas.addEventListener('touchend',()=>{gDrag=false;setTimeout(()=>gAR=true,2000)});
+
+    function animate(){
+        if(document.getElementById('page-home').classList.contains('active')){
+            if(gAR)gAX+=0.003;
+            renderGlobe(canvas);
+        }
+        requestAnimationFrame(animate);
+    }
+    animate();
+}
+
+function renderGlobe(canvas){
+    const ctx=canvas.getContext('2d'),w=canvas.width,h=canvas.height,cx=w/2,cy=h/2,r=Math.min(w,h)*0.36;
+    const bg=getComputedStyle(document.body).getPropertyValue('--bg');
+    ctx.fillStyle=bg;ctx.fillRect(0,0,w,h);
+
+    // Ocean
+    const grad=ctx.createRadialGradient(cx-r*0.3,cy-r*0.3,r*0.1,cx,cy,r);
+    grad.addColorStop(0,'#1a5276');grad.addColorStop(0.4,'#154360');grad.addColorStop(0.75,'#0d2137');grad.addColorStop(1,'#060d18');
+    ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.fillStyle=grad;ctx.fill();
+
+    // Draw continents
+    Object.values(continents).forEach(outline=>{
+        ctx.beginPath();
+        let started=false;
+        outline.forEach(([lat,lon],i)=>{
+            const latR=lat*Math.PI/180,lonR=(lon+gAX*180/Math.PI)*Math.PI/180;
+            const x3=Math.cos(latR)*Math.cos(lonR),y3=Math.cos(latR)*Math.sin(lonR),z3=Math.sin(latR);
+            const cosY=Math.cos(gAY),sinY=Math.sin(gAY),x3r=x3*cosY+z3*sinY,z3r=-x3*sinY+z3*cosY;
+            if(z3r>-0.1){
+                const sx=cx+x3r*r,sy=cy-y3*r*0.85;
+                if(!started){ctx.moveTo(sx,sy);started=true}else ctx.lineTo(sx,sy);
+            }else{started=false}
+        });
+        ctx.closePath();
+        ctx.fillStyle='#1a3a20';ctx.fill();
+        ctx.strokeStyle='#2a5a30';ctx.lineWidth=0.4;ctx.stroke();
+    });
+
+    // Atmosphere glow
+    ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);
+    ctx.strokeStyle='#4a8abf33';ctx.lineWidth=2;ctx.stroke();
+
+    // Grid
+    for(let lat=-60;lat<=60;lat+=30){
+        const y=cy-r*Math.sin(lat*Math.PI/180),lr=r*Math.cos(lat*Math.PI/180);
+        ctx.beginPath();ctx.ellipse(cx,y,lr,2,0,0,Math.PI*2);ctx.strokeStyle='#1a3a5044';ctx.lineWidth=0.3;ctx.stroke();
+    }
+
+    // Markers
+    const sorted=[...globeMarkers].map(m=>{
+        const latR=m.lat*Math.PI/180,lonR=(m.lon+gAX*180/Math.PI)*Math.PI/180;
+        const x3=Math.cos(latR)*Math.cos(lonR),y3=Math.cos(latR)*Math.sin(lonR),z3=Math.sin(latR);
+        const cosY=Math.cos(gAY),sinY=Math.sin(gAY);
+        return{...m,x3:x3*cosY+z3*sinY,y3:y3,z3:-x3*sinY+z3*cosY};
+    }).filter(m=>m.z3>-0.2).sort((a,b)=>b.z3-a.z3);
+    sorted.forEach(m=>{
+        const sx=cx+m.x3*r,sy=cy-m.y3*r*0.85,alpha=Math.max(0.3,Math.min(1,(m.z3+1)/1.3)),dr=3+m.z3*2.2;
+        ctx.beginPath();ctx.arc(sx,sy,dr+3,0,Math.PI*2);ctx.fillStyle=m.c+Math.floor(alpha*30).toString(16).padStart(2,'0');ctx.fill();
+        ctx.beginPath();ctx.arc(sx,sy,dr,0,Math.PI*2);ctx.fillStyle=m.c;ctx.globalAlpha=alpha;ctx.fill();ctx.globalAlpha=1;
+        const pulse=1+0.2*Math.sin(Date.now()/650+m.lon);
+        ctx.beginPath();ctx.arc(sx,sy,dr*pulse,0,Math.PI*2);ctx.strokeStyle=m.c+'55';ctx.lineWidth=0.7;ctx.stroke();
+        if(m.z3>0.1&&m.z3<0.95){
+            ctx.fillStyle=getComputedStyle(document.body).getPropertyValue('--text');ctx.font='7px Segoe UI';ctx.textAlign='center';
+            ctx.fillText(m.l, sx, sy-dr-6);
+        }
+    });
+}
+
+// ======== DOMAINS PAGE ========
+function renderDomains(){
+    const canvas=document.getElementById('domainsBarChart'),ctx=canvas.getContext('2d');
+    canvas.width=canvas.parentElement.clientWidth-25;canvas.height=400;
+    const w=canvas.width,h=canvas.height,pad={t:30,r:25,b:120,l:120},cw=w-pad.l-pad.r,ch=h-pad.t-pad.b;
+    const names=STORE.domains.map(d=>d.n.length>15?d.n.substring(0,14)+'.':d.n);
+    ctx.fillStyle=getComputedStyle(document.body).getPropertyValue('--bg');ctx.fillRect(0,0,w,h);
+    const max=Math.max(...STORE.domains.map(d=>Math.max(d.g25,d.g30)))+10;
+    for(let i=0;i<=5;i++){const y=pad.t+(ch/5)*i;ctx.strokeStyle=getComputedStyle(document.body).getPropertyValue('--border');ctx.beginPath();ctx.moveTo(pad.l,y);ctx.lineTo(w-pad.r,y);ctx.stroke();ctx.fillStyle=getComputedStyle(document.body).getPropertyValue('--text2');ctx.font='9px Segoe UI';ctx.textAlign='right';ctx.fillText(Math.round(max-(max/5)*i)+'%',pad.l-6,y+3)}
+    const gap=cw/STORE.domains.length,bw=gap*0.32;
+    STORE.domains.forEach((d,i)=>{
+        const x=pad.l+gap*i+gap*0.1,bh=(d.g25/max)*ch,y1=h-pad.b-bh;ctx.fillStyle=d.c;rndRect(ctx,x,y1,bw,bh,3);ctx.fill();
+        ctx.fillStyle=getComputedStyle(document.body).getPropertyValue('--text');ctx.font='bold 8px Segoe UI';ctx.textAlign='center';ctx.fillText(d.g25+'%',x+bw/2,y1-7);
+        const x2=pad.l+gap*i+gap*0.48,bh2=(d.g30/max)*ch,y2=h-pad.b-bh2;ctx.fillStyle=d.c+'77';rndRect(ctx,x2,y2,bw,bh2,3);ctx.fill();
+        ctx.fillText(d.g30+'%',x2+bw/2,y2-7);
+        ctx.save();ctx.fillStyle=getComputedStyle(document.body).getPropertyValue('--text');ctx.font='8px Segoe UI';ctx.translate(pad.l+gap*i+gap*0.25,h-pad.b+10);ctx.rotate(-0.55);ctx.fillText(names[i],0,0);ctx.restore();
+    });
+    ctx.fillStyle='#4f8fff';ctx.fillRect(w-220,35,10,10);ctx.fillStyle=getComputedStyle(document.body).getPropertyValue('--text');ctx.font='10px Segoe UI';ctx.textAlign='left';ctx.fillText('2025',w-206,45);
+    ctx.fillStyle='#4f8fff77';ctx.fillRect(w-220,52,10,10);ctx.fillText('2030 (proj.)',w-206,62);
+    document.getElementById('domainTabs').innerHTML=STORE.domains.map((d,i)=>`<span class="tab${i===0?' active':''}" onclick="showDBI(${i})">${d.n.split(' ')[0]}</span>`).join('');
+    showDBI(0);
+}
+function showDBI(idx){
+    document.querySelectorAll('#domainTabs .tab').forEach((t,i)=>t.classList.toggle('active',i===idx));
+    showDD(STORE.domains[idx].id);
+}
+function showDD(did){
+    const d=STORE.domains.find(x=>x.id===did);if(!d)return;
+    document.getElementById('domainsDetail').innerHTML=`
+        <div class="card" style="margin-top:0.8rem">
+            <div style="display:flex;gap:0.8rem;flex-wrap:wrap;align-items:flex-start">
+                <div style="width:90px;height:80px;background:linear-gradient(135deg,${d.c}33,${d.c}11);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;font-weight:700;color:${d.c}">${d.ic}</div>
+                <div style="flex:1;min-width:180px">
+                    <h2>${d.n} <button class="btn btn-outline btn-sm btn-icon" onclick="tFav('domain','${d.id}')">${iFav('domain',d.id)?'★':'☆'}</button></h2>
+                    <p style="color:var(--text2);font-size:0.82rem">${d.desc}</p>
+                    <div style="display:flex;gap:0.2rem;flex-wrap:wrap;margin:0.4rem 0">
+                        <span class="tag tag-green">+${d.g25}%</span><span class="tag tag-blue">${d.mkt}</span><span class="tag tag-purple">${d.mk30}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="grid grid-3" style="margin-top:0.8rem">
+            ${d.mt.filter((_,i)=>i<7).map((m,i)=>`
+                <div class="card" style="cursor:pointer" onclick="nav('metiers');document.getElementById('metierSearch').value='${m[0]}';searchMetier()">
+                    <strong>${i+1}. ${m[0]}</strong>
+                    <div style="margin-top:0.2rem"><span style="color:var(--green);font-size:0.82rem">${m[1]}</span></div>
+                    <div style="font-size:0.72rem;color:var(--text2)">${m[2]} ${m[3]==='up'?'↑':'→'} | ${m[4]}</div>
+                </div>`).join('')}
+        </div>
+        <div style="margin-top:0.8rem;display:flex;gap:0.4rem"><button class="btn btn-primary btn-sm" onclick="downloadDomainPDF('${d.id}')">PDF</button><button class="btn btn-outline btn-sm" onclick="downloadDomainMPDF('${d.id}')">PDF Metiers</button><button class="btn btn-outline btn-sm" onclick="downloadHowPDF('${d.id}')">Guide</button></div>`;
+}
+
+// ======== BILLIONAIRES PAGE ========
+function renderBillionaires(){
+    document.getElementById('billionairesList').innerHTML=STORE.billionaires.map((b,i)=>`
+        <div class="card" style="display:flex;gap:0.7rem;flex-wrap:wrap;align-items:flex-start">
+            <div style="width:65px;height:65px;border-radius:50%;background:linear-gradient(135deg,#f1c40f,#e67e22);display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:700;flex-shrink:0;color:#000">${b.n.split(' ').map(w=>w[0]).join('').substring(0,3)}</div>
+            <div style="flex:1;min-width:160px">
+                <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap"><h3 style="margin:0;font-size:0.95rem">#${i+1} ${b.n}</h3><span style="color:#f1c40f;font-weight:700;font-size:1rem">${b.fmt}</span></div>
+                <p style="color:var(--text2);font-size:0.78rem;margin:0.15rem 0">Age: ${b.a} | ${b.ct} | ${b.gr}</p>
+                <p style="font-size:0.78rem"><strong>Secteur:</strong> ${b.sec}</p>
+                <p style="font-size:0.78rem;color:var(--text2)">${b.strat}</p>
+                <div style="display:flex;gap:0.3rem;margin-top:0.3rem"><button class="btn btn-outline btn-sm" onclick="downloadBillPDF('${b.id}')">PDF</button><button class="btn btn-outline btn-sm btn-icon" onclick="tFav('billionaire','${b.id}')">${iFav('billionaire',b.id)?'★':'☆'}</button></div>
+            </div>
+        </div>`).join('');
+}
+
+// ======== METIERS PAGE ========
+function renderTopM(){
+    const top30=[["Ingenieur IA","$73K-$210K","+37%","up"],["Expert Cybersecurite","$82K-$200K","+29%","up"],["Data Scientist","$60K-$190K","+34%","up"],["Architecte Cloud","$90K-$220K","+27%","up"],["Ingenieur DevOps","$75K-$190K","+22%","up"],["Chirurgien","$100K-$600K","+6%","up"],["Ingenieur Robotique","$65K-$180K","+30%","up"],["Actuaire","$75K-$220K","+22%","up"],["Pilote de Ligne","$60K-$280K","+6%","stable"],["Medecin Specialiste","$80K-$500K","+7%","up"],["Physicien Quantique","$70K-$220K","+89%","up"],["Trader","$80K-$500K+","+3%","stable"],["Developpeur Blockchain","$70K-$200K","+18%","up"],["Gestionnaire Patrimoine","$55K-$250K","+12%","up"],["Ingenieur Semi-conducteurs","$70K-$200K","+25%","up"],["Architecte Logiciel","$85K-$210K","+20%","up"],["Diplomate","$60K-$210K","+5%","stable"],["Avocat","$40K-$300K","+4%","stable"],["Technicien Eolien","$50K-$90K","+50%","up"],["Ingenieur Hydrogene","$60K-$165K","+35%","up"],["Lobbyiste","$70K-$200K","+8%","stable"],["Dentiste","$60K-$220K","+5%","stable"],["Analyste Financier","$60K-$180K","+9%","stable"],["UX/UI Designer","$55K-$145K","+16%","up"],["Controleur Aerien","$65K-$190K","+4%","stable"],["Ingenieur Aeronautique","$70K-$190K","+12%","up"],["Psychologue","$30K-$85K","+12%","up"],["Installateur Solaire","$35K-$80K","+42%","up"],["Influenceur/Createur","$0-$5M+","+25%","up"],["Notaire","$45K-$200K","+3%","stable"]];
+    document.getElementById('topMetiers').innerHTML=top30.map((m,i)=>`
+        <div class="card" style="cursor:pointer" onclick="document.getElementById('metierSearch').value='${m[0]}';searchMetier()">
+            <div style="display:flex;justify-content:space-between"><div><strong style="font-size:0.82rem">#${i+1} ${m[0]}</strong></div><span style="color:${m[3]==='up'?'var(--green)':'var(--text2)'}">${m[2]} ${m[3]==='up'?'↑':''}</span></div>
+            <div style="color:var(--green);font-weight:600;font-size:0.78rem">${m[1]}</div>
+        </div>`).join('');
+}
+function renderAllMTags(){
+    const all=Object.values(STORE.metiers).map(m=>m.n).sort().slice(0,50);
+    document.getElementById('metierSuggestions').innerHTML=all.map(n=>`<span class="tag tag-blue tag-clic" onclick="document.getElementById('metierSearch').value='${n}';searchMetier()">${n}</span>`).join('')+'<span style="color:var(--text3);font-size:0.75rem;padding:0.25rem">... et 200+ autres</span>';
+}
+function suggestM(){
+    const q=document.getElementById('metierSearch').value.toLowerCase().trim();
+    const c=document.getElementById('metierSuggestions');
+    if(q.length<2){renderAllMTags();return}
+    const m=STORE.metiersList.filter(k=>k.includes(q)).slice(0,25);
+    c.innerHTML=m.length>0?m.map(k=>`<span class="tag tag-blue tag-clic" onclick="document.getElementById('metierSearch').value='${STORE.metiers[k].n}';searchMetier()">${STORE.metiers[k].n}</span>`).join(''):'<span style="color:var(--text3)">Aucun metier. Essayez autre chose.</span>';
+}
+function searchMetier(){
+    const q=document.getElementById('metierSearch').value.trim();
+    if(!q){notify('Entrez un metier','error');return}
+    const m=STORE.metiers[q.toLowerCase()];
+    if(!m){
+        const close=STORE.metiersList.filter(k=>k.includes(q.toLowerCase()));
+        if(close.length>0){
+            document.getElementById('metierResults').innerHTML=`<div class="result-panel"><h2>Metiers proches de "${q}"</h2><div class="grid grid-2">${close.slice(0,12).map(k=>`<div class="card" style="cursor:pointer" onclick="document.getElementById('metierSearch').value='${STORE.metiers[k].n}';searchMetier()"><strong>${STORE.metiers[k].n}</strong><br><span class="tag tag-green">${STORE.metiers[k].sal}</span></div>`).join('')}</div></div>`;
+            return;
+        }
+        document.getElementById('metierResults').innerHTML=`<div class="card" style="text-align:center;padding:2rem"><h3>"${q}" non trouve</h3><p style="color:var(--text2)">Parcourez la liste ou essayez un autre terme.</p></div>`;
+        return;
+    }
+    const tc=m.trend==='up'?'var(--green)':m.trend==='declining'?'var(--red)':'var(--text2)';
+    const sc=m.sr>=70?'var(--green)':m.sr>=40?'var(--orange)':'var(--red)';
+    document.getElementById('metierResults').innerHTML=`
+    <div class="result-panel">
+        <div class="card card-${m.sr>=70?'green':m.sr>=40?'accent':'red'}" style="margin-bottom:0.8rem">
+            <div style="display:flex;gap:0.8rem;flex-wrap:wrap;align-items:flex-start">
+                <div style="width:100px;height:90px;background:linear-gradient(135deg,${m.trend==='up'?'#2ecc7133':'#e74c3c33'},${m.trend==='up'?'#2ecc7111':'#e74c3c11'});border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.8rem">${m.type==='intellectuel'?'🧠':m.type==='manuel'?'🔧':'📋'}</div>
+                <div style="flex:1;min-width:180px">
+                    <div style="display:flex;justify-content:space-between"><h2 style="margin:0">${m.n}</h2><button class="btn btn-outline btn-sm btn-icon" onclick="tFav('metier','${m.n.toLowerCase()}')">${iFav('metier',m.n.toLowerCase())?'★':'☆'}</button></div>
+                    <p style="color:var(--text2);font-size:0.8rem">${m.sec} | ${m.type==='intellectuel'?'Intellectuel':m.type==='manuel'?'Manuel':'Mixte'}</p>
+                    <div style="display:flex;gap:0.2rem;flex-wrap:wrap;margin:0.4rem 0">
+                        <span class="tag tag-green">${m.sal}</span><span class="tag tag-blue">${m.gro}</span>
+                        <span class="tag" style="color:${tc}">${m.trend==='up'?'↑ Hausse':m.trend==='declining'?'↓ Baisse':m.trend==='stable'?'→ Stable':'⇄ Volatile'}</span>
+                        <span class="tag" style="color:${sc}">Reussite: ${m.sr}%</span>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top:0.6rem"><h3>Description</h3><p style="font-size:0.85rem">${m.desc}</p></div>
+            <div style="margin-top:0.6rem"><h3>Diplomes requis</h3><p style="font-size:0.85rem">${m.dip}</p></div>
+        </div>
+        <div class="grid grid-2" style="margin-bottom:0.8rem">
+            <div class="card card-green"><h3 style="color:var(--green)">Avantages</h3><p style="font-size:0.85rem;white-space:pre-line">${m.adv.split(', ').map(a=>'• '+a).join('\n')}</p></div>
+            <div class="card card-red"><h3 style="color:var(--red)">Inconvenients</h3><p style="font-size:0.85rem;white-space:pre-line">${m.inc.split(', ').map(a=>'• '+a).join('\n')}</p></div>
+        </div>
+        <div class="chart-wrap" style="margin-bottom:0.8rem"><canvas id="mTrend"></canvas></div>
+        <div class="chart-wrap" style="margin-bottom:0.8rem;max-width:300px"><h3 style="text-align:center">Reussite / Echec</h3><canvas id="mPie"></canvas></div>
+        ${m.ent?`<div class="card" style="margin-bottom:0.8rem"><h3>Exemples de reussite</h3><p style="font-size:0.85rem">${m.ent}</p></div>`:''}
+        <div style="margin-bottom:0.8rem"><h3>Video</h3><div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px">${getVideoHtml(m.vid,m.sec)}</div></div>
+        <button class="btn btn-primary" onclick="downloadMetierPDF('${m.n.toLowerCase()}')">Telecharger le PDF complet</button>
+    </div>`;
+    setTimeout(()=>{drawMT(m);drawMP(m)},150);
+}
+function drawMT(m){
+    const canvas=document.getElementById('mTrend');if(!canvas)return;
+    const ctx=canvas.getContext('2d');canvas.width=canvas.parentElement.clientWidth-25;canvas.height=180;
+    const w=canvas.width,h=canvas.height,pad={t:22,r:15,b:30,l:50},cw=w-pad.l-pad.r,ch=h-pad.t-pad.b;
+    const gn=parseFloat(m.gro.replace('%','').replace('+','').replace('-',''));
+    const vals=m.trend==='up'?[gn-7,gn-2,gn]:m.trend==='declining'?[gn+3,gn+1,gn]:[gn-1,gn,gn+1];
+    const minV=Math.min(0,...vals)-3,maxV=Math.max(...vals)+8;
+    ctx.fillStyle=getComputedStyle(document.body).getPropertyValue('--bg');ctx.fillRect(0,0,w,h);
+    for(let i=0;i<=3;i++){const y=pad.t+(ch/3)*i;ctx.strokeStyle=getComputedStyle(document.body).getPropertyValue('--border');ctx.beginPath();ctx.moveTo(pad.l,y);ctx.lineTo(w-pad.r,y);ctx.stroke();ctx.fillStyle=getComputedStyle(document.body).getPropertyValue('--text2');ctx.font='8px Segoe UI';ctx.textAlign='right';ctx.fillText(Math.round(maxV-(maxV-minV)/3*i)+'%',pad.l-5,y+3)}
+    ctx.strokeStyle=m.trend==='up'?'#2ecc71':m.trend==='declining'?'#e74c3c':'#3498db';ctx.lineWidth=2.3;ctx.beginPath();
+    vals.forEach((v,i)=>{const x=pad.l+(cw/2)*i,y=pad.t+ch-((v-minV)/(maxV-minV))*ch;if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y)});ctx.stroke();
+    vals.forEach((v,i)=>{const x=pad.l+(cw/2)*i,y=pad.t+ch-((v-minV)/(maxV-minV))*ch;ctx.fillStyle=m.trend==='up'?'#2ecc71':m.trend==='declining'?'#e74c3c':'#3498db';ctx.beginPath();ctx.arc(x,y,4,0,Math.PI*2);ctx.fill();ctx.fillStyle=getComputedStyle(document.body).getPropertyValue('--text');ctx.font='bold 9px Segoe UI';ctx.textAlign='center';ctx.fillText(v+'%',x,y-9)});
+    ['2023','2024','2025'].forEach((l,i)=>{ctx.fillStyle=getComputedStyle(document.body).getPropertyValue('--text2');ctx.font='9px Segoe UI';ctx.textAlign='center';ctx.fillText(l,pad.l+(cw/2)*i,h-pad.b+12)});
+}
+function drawMP(m){
+    const canvas=document.getElementById('mPie');if(!canvas)return;
+    const ctx=canvas.getContext('2d');canvas.width=220;canvas.height=220;const cx=110,cy=100,r=80;
+    ctx.fillStyle=getComputedStyle(document.body).getPropertyValue('--bg');ctx.fillRect(0,0,220,220);
+    const sa=(m.sr/100)*Math.PI*2;
+    ctx.fillStyle='#2ecc71';ctx.beginPath();ctx.moveTo(cx,cy);ctx.arc(cx,cy,r,-Math.PI/2,-Math.PI/2+sa);ctx.fill();
+    ctx.fillStyle='#e74c3c';ctx.beginPath();ctx.moveTo(cx,cy);ctx.arc(cx,cy,r,-Math.PI/2+sa,-Math.PI/2+Math.PI*2);ctx.fill();
+    ctx.fillStyle=getComputedStyle(document.body).getPropertyValue('--bg');ctx.beginPath();ctx.arc(cx,cy,36,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle=getComputedStyle(document.body).getPropertyValue('--text');ctx.font='bold 14px Segoe UI';ctx.textAlign='center';ctx.fillText(m.sr+'%',cx,cy-2);
+    ctx.fillStyle=getComputedStyle(document.body).getPropertyValue('--text2');ctx.font='9px Segoe UI';ctx.fillText('Reussite',cx,cy+13);
+}
+
+// ======== COMPARATOR ========
+function populateSelects(){
+    const o=STORE.domains.map(d=>`<option value="${d.id}">${d.n}</option>`).join('');
+    document.getElementById('c1').innerHTML='<option value="">-- Choisir --</option>'+o;
+    document.getElementById('c2').innerHTML='<option value="">-- Choisir --</option>'+o;
+}
+function compareDomains(){
+    const i1=document.getElementById('c1').value,i2=document.getElementById('c2').value;
+    if(!i1||!i2){notify('Selectionnez 2 domaines','error');return}
+    if(i1===i2){notify('Domaines differents','error');return}
+    const d1=STORE.domains.find(d=>d.id===i1),d2=STORE.domains.find(d=>d.id===i2);
+    document.getElementById('compareResults').innerHTML=`
+    <div class="result-panel"><h2>${d1.n} vs ${d2.n}</h2>
+        <div class="grid grid-2" style="margin-top:0.8rem">
+            <div class="card card-accent"><h3>${d1.n}</h3><p style="font-size:0.82rem;color:var(--text2)">${d1.desc}</p>
+                <div style="margin:0.4rem 0"><span class="tag tag-green">+${d1.g25}%</span><span class="tag tag-blue">${d1.mkt}</span></div>
+                <p style="font-size:0.8rem">Reussite: <strong style="color:${d1.sr>=60?'var(--green)':'var(--orange)'}">${d1.sr}%</strong></p>
+                <p style="font-size:0.8rem"><strong>Entrepreneurs:</strong> ${d1.ent}</p>
+                <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;margin:0.4rem 0">${getVideoHtml(d1.vid,d1.id)}</div>
+                <button class="btn btn-outline btn-sm" onclick="downloadDomainPDF('${d1.id}')">PDF</button></div>
+            <div class="card card-green"><h3>${d2.n}</h3><p style="font-size:0.82rem;color:var(--text2)">${d2.desc}</p>
+                <div style="margin:0.4rem 0"><span class="tag tag-green">+${d2.g25}%</span><span class="tag tag-blue">${d2.mkt}</span></div>
+                <p style="font-size:0.8rem">Reussite: <strong style="color:${d2.sr>=60?'var(--green)':'var(--orange)'}">${d2.sr}%</strong></p>
+                <p style="font-size:0.8rem"><strong>Entrepreneurs:</strong> ${d2.ent}</p>
+                <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;margin:0.4rem 0">${getVideoHtml(d2.vid,d2.id)}</div>
+                <button class="btn btn-outline btn-sm" onclick="downloadDomainPDF('${d2.id}')">PDF</button></div>
+        </div>
+        <div class="chart-wrap" style="margin-top:0.8rem"><canvas id="compChart"></canvas></div>
+    </div>`;
+    setTimeout(()=>drawCompChart(d1,d2),150);
+}
+function drawCompChart(d1,d2){
+    const canvas=document.getElementById('compChart'),ctx=canvas.getContext('2d');
+    canvas.width=canvas.parentElement.clientWidth-25;canvas.height=200;
+    const w=canvas.width,h=canvas.height,pad={t:22,r:15,b:45,l:80},cw=w-pad.l-pad.r,ch=h-pad.t-pad.b;
+    const labs=['2022','2023','2024','2025','2030p'],v1=[d1.g22,d1.g23,d1.g24,d1.g25,d1.g30],v2=[d2.g22,d2.g23,d2.g24,d2.g25,d2.g30];
+    const max=Math.max(...v1,...v2)+10;
+    ctx.fillStyle=getComputedStyle(document.body).getPropertyValue('--bg');ctx.fillRect(0,0,w,h);
+    for(let i=0;i<=4;i++){const y=pad.t+(ch/4)*i;ctx.strokeStyle=getComputedStyle(document.body).getPropertyValue('--border');ctx.beginPath();ctx.moveTo(pad.l,y);ctx.lineTo(w-pad.r,y);ctx.stroke();ctx.fillStyle=getComputedStyle(document.body).getPropertyValue('--text2');ctx.font='8px Segoe UI';ctx.textAlign='right';ctx.fillText(Math.round(max-(max/4)*i)+'%',pad.l-5,y+3)}
+    const bw=cw/5*0.27;
+    labs.forEach((l,i)=>{
+        const x=pad.l+(cw/5)*i,h1=(v1[i]/max)*ch,h2=(v2[i]/max)*ch;
+        ctx.fillStyle=d1.c;rndRect(ctx,x-bw-3,pad.t+ch-h1,bw,h1,3);ctx.fill();
+        ctx.fillStyle=d2.c;rndRect(ctx,x+3,pad.t+ch-h2,bw,h2,3);ctx.fill();
+        ctx.fillStyle=getComputedStyle(document.body).getPropertyValue('--text');ctx.font='bold 8px Segoe UI';ctx.textAlign='center';ctx.fillText(v1[i]+'%',x-bw/2-3,pad.t+ch-h1-5);
+        ctx.fillText(v2[i]+'%',x+bw/2+3,pad.t+ch-h2-5);
+        ctx.fillStyle=getComputedStyle(document.body).getPropertyValue('--text2');ctx.font='8px Segoe UI';ctx.fillText(l,x,h-pad.b+14);
+    });
+    ctx.fillStyle=d1.c;ctx.fillRect(w-180,10,8,8);ctx.fillStyle=getComputedStyle(document.body).getPropertyValue('--text');ctx.font='9px Segoe UI';ctx.textAlign='left';ctx.fillText(d1.n,w-168,18);
+    ctx.fillStyle=d2.c;ctx.fillRect(w-180,24,8,8);ctx.fillText(d2.n,w-168,32);
+}
+
+// ======== CONTACT ========
+function sendContact(e){e.preventDefault();notify('Message simule envoye a olaezose@gmail.com','success');e.target.reset()}
+
+// ======== PDF ENGINE (RICH) ========
+function gP(title, content) {
+    const w = window.open('', '_blank', 'width=900,height=700');
+    w.document.write(content);
+    w.document.close();
+    setTimeout(() => w.print(), 600);
+}
+
+const PDF_STYLE = `
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,sans-serif;max-width:800px;margin:0 auto;padding:1.5cm 1cm;color:#1a1a2e;line-height:1.75;background:#fff}
+.cover{text-align:center;padding:3rem 1rem;background:linear-gradient(135deg,#1a1a2e,#16213e);color:#fff;border-radius:16px;margin-bottom:2rem}
+.cover h1{font-size:2.2rem;margin-bottom:0.5rem;letter-spacing:-1px}
+.cover .subtitle{font-size:1.1rem;opacity:0.85;margin-bottom:1rem}
+.cover .badge-row{display:flex;justify-content:center;gap:0.5rem;flex-wrap:wrap;margin-top:1rem}
+.cover .badge{background:rgba(255,255,255,0.15);padding:0.4rem 1rem;border-radius:20px;font-size:0.9rem;font-weight:500}
+
+h2{color:#1a1a2e;font-size:1.4rem;margin:2rem 0 0.8rem;padding-bottom:0.4rem;border-bottom:3px solid #3498db}
+h3{color:#2c3e50;font-size:1.1rem;margin:1.2rem 0 0.4rem}
+p{margin-bottom:0.8rem;text-align:justify;font-size:0.95rem}
+ul,ol{margin:0.5rem 0 1rem 1.5rem}
+li{margin-bottom:0.3rem;font-size:0.9rem}
+
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0.8rem;margin:1rem 0}
+.stat-box{background:linear-gradient(135deg,#e8f4fd,#d4e9f9);padding:1rem;border-radius:10px;text-align:center;border-left:4px solid #3498db}
+.stat-box.green{background:linear-gradient(135deg,#e8f8f0,#d0f0e0);border-left-color:#27ae60}
+.stat-box.red{background:linear-gradient(135deg,#fdeaea,#f9d0d0);border-left-color:#e74c3c}
+.stat-box.orange{background:linear-gradient(135deg,#fef5e7,#fdebd0);border-left-color:#f39c12}
+.stat-num{font-size:1.6rem;font-weight:700;color:#1a1a2e}
+.stat-lbl{font-size:0.75rem;color:#555;margin-top:0.2rem}
+
+.section{background:#f8f9fb;border-radius:10px;padding:1.2rem;margin:1rem 0;border:1px solid #e8ecf0}
+.section h3{margin-top:0}
+
+.bar-wrap{margin:0.6rem 0}
+.bar-info{display:flex;justify-content:space-between;font-size:0.8rem;margin-bottom:0.15rem}
+.bar-info span{font-weight:600}
+.bar-bg{height:22px;background:#e8ecf0;border-radius:6px;overflow:hidden}
+.bar-fill{height:100%;border-radius:6px;display:flex;align-items:center;padding-left:8px;color:#fff;font-size:0.7rem;font-weight:700}
+
+.chart-svg{width:100%;max-width:600px;margin:1rem auto;display:block}
+
+.strat-box{background:linear-gradient(135deg,#fff9e6,#fff3cc);border:1px solid #f0d060;border-radius:10px;padding:1.2rem;margin:1rem 0}
+.strat-box h3{color:#b8860b}
+.adv-box{background:linear-gradient(135deg,#e8f8f0,#d0f0e0);border:1px solid #a0d8b8;border-radius:10px;padding:1rem;margin:0.8rem 0}
+.adv-box h4{color:#27ae60;margin-bottom:0.4rem}
+.risk-box{background:linear-gradient(135deg,#fdeaea,#f9d0d0);border:1px solid #e8a0a0;border-radius:10px;padding:1rem;margin:0.8rem 0}
+.risk-box h4{color:#e74c3c;margin-bottom:0.4rem}
+
+table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:0.85rem}
+th{background:#1a1a2e;color:#fff;padding:0.5rem 0.7rem;text-align:left;font-weight:600}
+td{padding:0.45rem 0.7rem;border-bottom:1px solid #e0e0e0}
+tr:nth-child(even) td{background:#f8f9fb}
+
+.footer{margin-top:2rem;padding-top:1rem;border-top:2px solid #e0e0e0;font-size:0.75rem;color:#888;text-align:center}
+.footer strong{color:#555}
+
+@media print{body{padding:0.5cm}@page{margin:0.5cm}}
+</style>`;
+
+function svgBarChart(vals, labels, colors, maxH) {
+    const w = 560, h = maxH || 220, padL = 55, padB = 35, padT = 25, padR = 20;
+    const cw = w - padL - padR, ch = h - padT - padB;
+    const maxV = Math.max(...vals) * 1.15;
+    let bars = '';
+    const bw = cw / vals.length * 0.55;
+    vals.forEach((v, i) => {
+        const bh = (v / maxV) * ch;
+        const x = padL + (cw / vals.length) * i + (cw / vals.length - bw) / 2;
+        const y = h - padB - bh;
+        bars += `<rect x="${x}" y="${y}" width="${bw}" height="${bh}" rx="4" fill="${colors[i]||'#3498db'}"/><text x="${x+bw/2}" y="${y-6}" text-anchor="middle" font-size="10" font-weight="700" fill="#1a1a2e">${v}%</text><text x="${x+bw/2}" y="${h-padB+14}" text-anchor="middle" font-size="9" fill="#555">${labels[i]}</text>`;
+    });
+    // Grid
+    for (let i = 0; i <= 4; i++) {
+        const y = padT + (ch / 4) * i;
+        bars += `<line x1="${padL}" y1="${y}" x2="${w-padR}" y2="${y}" stroke="#e0e0e0" stroke-width="0.5"/><text x="${padL-5}" y="${y+4}" text-anchor="end" font-size="9" fill="#888">${Math.round(maxV-(maxV/4)*i)}%</text>`;
+    }
+    return `<svg viewBox="0 0 ${w} ${h}" style="width:100%;max-width:560px;display:block;margin:1rem auto" xmlns="http://www.w3.org/2000/svg">${bars}</svg>`;
+}
+
+function svgPieChart(successRate, size) {
+    const cx = size / 2, cy = size / 2, r = size / 2 - 10;
+    const sa = (successRate / 100) * Math.PI * 2;
+    const sx = cx + r * Math.cos(-Math.PI / 2);
+    const sy = cy + r * Math.sin(-Math.PI / 2);
+    const ex = cx + r * Math.cos(-Math.PI / 2 + sa);
+    const ey = cy + r * Math.sin(-Math.PI / 2 + sa);
+    const large = sa > Math.PI ? 1 : 0;
+    return `<svg viewBox="0 0 ${size} ${size}" style="width:100%;max-width:${size}px;display:block;margin:0.5rem auto" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="${cx}" cy="${cy}" r="${r}" fill="#e74c3c"/>
+        <path d="M${cx},${cy} L${sx},${sy} A${r},${r} 0 ${large} 1 ${ex},${ey} Z" fill="#27ae60"/>
+        <circle cx="${cx}" cy="${cy}" r="${r*0.42}" fill="#fff"/>
+        <text x="${cx}" y="${cy-6}" text-anchor="middle" font-size="${size*0.1}" font-weight="700" fill="#1a1a2e">${successRate}%</text>
+        <text x="${cx}" y="${cy+14}" text-anchor="middle" font-size="${size*0.06}" fill="#555">Reussite</text>
+    </svg>`;
+}
+
+// ===== DOMAIN PDF =====
+function downloadDomainPDF(id) {
+    const d = STORE.domains.find(x => x.id === id);
+    if (!d) return;
+    const vals = [d.g22, d.g23, d.g24, d.g25, d.g30];
+    const labs = ['2022', '2023', '2024', '2025', '2030p'];
+    const colors = [d.c+'88', d.c+'88', d.c+'99', d.c, d.c+'66'];
+    const chart = svgBarChart(vals, labs, colors, 200);
+    const pie = svgPieChart(d.sr, 200);
+    const content = `<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>${d.n} - Jex-analytique</title>${PDF_STYLE}</head><body>
+<div class="cover">
+    <h1>${d.n}</h1>
+    <p class="subtitle">Rapport d'Analyse Strategique - ${new Date().getFullYear()}</p>
+    <div class="badge-row"><span class="badge">CAGR 2025: +${d.g25}%</span><span class="badge">Marche: ${d.mkt}</span><span class="badge">Projection 2030: ${d.mk30}</span></div>
+</div>
+
+<h2>1. Vue d'Ensemble du Secteur</h2>
+<div class="section">
+    <p>${d.desc}</p>
+    <p>Ce secteur represente une opportunite majeure dans l'economie mondiale de 2025. Les investissements y affluent a un rythme soutenu, portes par des innovations technologiques, des politiques gouvernementales favorables et une demande croissante des consommateurs et des entreprises. Les analystes de ResearchAndMetric, IBISWorld et le BLS convergent pour souligner la robustesse de ce domaine sur la decennie a venir.</p>
+    <p>Les barrieres a l'entree varient selon les segments, mais globalement, la maitrise technique et la capacite d'innovation sont les facteurs differenciants. La concurrence s'intensifie avec l'arrivee de nouveaux acteurs, notamment des startups agiles et des entreprises issues de marches emergents. La consolidation est attendue a moyen terme, ce qui pourrait renforcer la position des leaders etablis.</p>
+    <p>Du point de vue reglementaire, ce secteur fait l'objet d'une attention accrue des gouvernements, soucieux de proteger les consommateurs tout en encourageant l'innovation. Les entreprises qui sauront naviguer cet environnement complexe tout en maintenant une croissance soutenue seront les grandes gagnantes de la prochaine decennie.</p>
+</div>
+
+<h2>2. Indicateurs de Performance</h2>
+<div class="stats-grid">
+    <div class="stat-box green"><div class="stat-num">+${d.g25}%</div><div class="stat-lbl">Croissance 2025</div></div>
+    <div class="stat-box"><div class="stat-num">${d.mkt}</div><div class="stat-lbl">Taille du Marche</div></div>
+    <div class="stat-box orange"><div class="stat-num">${d.sr}%</div><div class="stat-lbl">Taux de Reussite</div></div>
+    <div class="stat-box red"><div class="stat-num">${100-d.sr}%</div><div class="stat-lbl">Taux d'Echec</div></div>
+</div>
+<div class="section"><h3>Evolution du Taux de Croissance Annuel</h3>${chart}<p style="text-align:center;font-size:0.8rem;color:#888">Sources: ResearchAndMetric, IBISWorld, BLS, Statista</p></div>
+<div class="section"><h3>Diagramme Reussite/Echec</h3>${pie}</div>
+
+<h2>3. Strategie Business et Analyse Concurrentielle</h2>
+<div class="strat-box">
+    <h3>Strategies Gagnantes dans ce Secteur</h3>
+    <p><strong>Integration Verticale :</strong> Les leaders du secteur controlent l'ensemble de leur chaine de valeur, de la conception a la distribution. Cette maitrise leur permet de reduire les couts de 30 a 40% par rapport a leurs concurrents qui externalisent, tout en maintenant des standards de qualite eleves et une reactivite accrue face aux fluctuations du marche.</p>
+    <p><strong>Innovation Continue et R&D Intensive :</strong> Les entreprises les plus performantes reinvestissent entre 12% et 25% de leur chiffre d'affaires en Recherche et Developpement. Cet investissement soutenu leur permet de maintenir une avance technologique decisive, de deposer des brevets strategiques, et d'attirer les meilleurs talents mondiaux dans leurs laboratoires.</p>
+    <p><strong>Expansion Internationale Ciblee :</strong> La croissance repose sur une expansion methodique vers les marches a fort potentiel. Les entreprises identifient les zones geographiques ou la demande est superieure a l'offre, puis deployent des strategies d'entree adaptees (partenariats locaux, acquisitions, joint-ventures) pour capturer rapidement des parts de marche.</p>
+    <p><strong>Monetisation des Donnees et IA :</strong> Les acteurs dominants utilisent l'intelligence artificielle pour analyser les comportements clients, optimiser leurs operations en temps reel et personnaliser leurs offres. Cette approche data-driven genere un avantage concurrentiel cumulatif difficilement replicable par les nouveaux entrants.</p>
+    <p><strong>Fidelisation et Revenus Recurrents :</strong> Le modele economique evolue vers des abonnements et des services recurrents plutot que des ventes ponctuelles. Cette transition assure des flux de tresorerie previsibles, une valorisation plus elevee, et une relation client plus profonde et durable.</p>
+</div>
+
+<h2>4. Portraits d'Entrepreneurs Emblematiques</h2>
+<div class="section">
+    <p><strong>${d.ent.split('), ').join(')</strong><br>').split('),')[0]}</strong></p>
+    <p>Ces entrepreneurs ont su identifier des opportunites que d'autres ne voyaient pas. Leur vision, leur perseverance et leur capacite a executer rapidement leur ont permis de construire des empires dans ce secteur. Leur parcours illustre l'importance de la prise de risque calculee, de l'innovation disruptive et de la concentration sur la creation de valeur a long terme plutot que sur les profits a court terme.</p>
+</div>
+
+<h2>5. Metiers du Domaine</h2>
+<table><thead><tr><th>#</th><th>Metier</th><th>Salaire</th><th>Croissance</th><th>Type</th></tr></thead><tbody>
+${d.mt.map((m,i)=>`<tr><td>${i+1}</td><td><strong>${m[0]}</strong></td><td style="color:#27ae60">${m[1]}</td><td style="color:${m[3]==='up'?'#27ae60':m[3]==='declining'?'#e74c3c':'#555'}">${m[2]} ${m[3]==='up'?'↑':m[3]==='declining'?'↓':'→'}</td><td>${m[4]}</td></tr>`).join('')}
+</tbody></table>
+
+<h2>6. Opportunites et Risques</h2>
+<div class="adv-box"><h4>Opportunites</h4><p>Marche en croissance de ${d.g25}% par an. Projection a ${d.mk30} d'ici 2030. Demande mondiale soutenue par les tendances demographiques et technologiques. Possibilites de creation d'entreprise, de consulting et de carrieres internationales. Secteur attire les investissements publics et prives.</p></div>
+<div class="risk-box"><h4>Risques</h4><p>Concurrence intense et mondiale. Evolution technologique rapide qui peut rendre obsolete certaines competences. Barrieres reglementaires variables selon les pays. Cout eleve de formation et d'entree dans certains segments. Risque de concentration du marche autour de quelques acteurs dominants. Taux d'echec de ${100-d.sr}% pour les nouvelles entreprises.</p></div>
+
+<div class="footer"><p><strong>Jex-analytique</strong> - JEXREY | Document genere le ${new Date().toLocaleDateString('fr-FR')}</p><p>Sources: U.S. Bureau of Labor Statistics (BLS), Forbes Real-Time, Statista, PwC AI Jobs Barometer, ResearchAndMetric, IBISWorld, NYU Stern</p><p style="color:#e74c3c;margin-top:0.5rem"><strong>Avertissement:</strong> Ces analyses peuvent comporter des erreurs. Verifiez les faits aupres de sources officielles.</p></div>
+</body></html>`;
+    gP(d.n, content);
+    notify('PDF Domaine genere (couleur, courbes, strategie)','success');
+}
+
+// ===== METIERS PDF =====
+function downloadDomainMPDF(id) {
+    const d = STORE.domains.find(x => x.id === id);
+    if (!d) return;
+    const content = `<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Metiers ${d.n} - Jex-analytique</title>${PDF_STYLE}</head><body>
+<div class="cover"><h1>Tous les Metiers</h1><p class="subtitle">${d.n} - ${d.mt.length} metiers analyses</p><div class="badge-row"><span class="badge">Marche: ${d.mkt}</span><span class="badge">CAGR: +${d.g25}%</span></div></div>
+<h2>Metiers du Domaine ${d.n}</h2>
+${d.mt.map((m,i)=>`
+<div class="section">
+    <h3>${i+1}. ${m[0]}</h3>
+    <div class="stats-grid">
+        <div class="stat-box green"><div class="stat-num">${m[1]}</div><div class="stat-lbl">Salaire</div></div>
+        <div class="stat-box"><div class="stat-num">${m[2]}</div><div class="stat-lbl">Croissance</div></div>
+        <div class="stat-box orange"><div class="stat-num">${m[4]}</div><div class="stat-lbl">Type</div></div>
+        <div class="stat-box"><div class="stat-num">${m[3]==='up'?'↑ Hausse':m[3]==='declining'?'↓ Baisse':m[3]==='stable'?'→ Stable':'⇄ Volatile'}</div><div class="stat-lbl">Tendance</div></div>
+    </div>
+</div>`).join('')}
+<div class="footer"><p><strong>Jex-analytique</strong> - JEXREY | ${new Date().toLocaleDateString('fr-FR')}</p><p>Sources: BLS, Indeed, Stack Overflow, PwC, Glassdoor</p><p style="color:#e74c3c"><strong>Avertissement:</strong> Verifiez les faits aupres de sources officielles.</p></div>
+</body></html>`;
+    gP('Metiers '+d.n, content);
+    notify('PDF Metiers genere','success');
+}
+
+// ===== HOW TO START PDF =====
+function downloadHowPDF(id) {
+    const d = STORE.domains.find(x => x.id === id);
+    if (!d) return;
+    const content = `<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Debuter - ${d.n} - Jex-analytique</title>${PDF_STYLE}</head><body>
+<div class="cover"><h1>Comment Debuter</h1><p class="subtitle">Dans le domaine : ${d.n}</p><div class="badge-row"><span class="badge">Guide Pratique</span></div></div>
+<h2>1. Parcours Recommande</h2>
+<div class="section">
+    <p>Pour integrer le domaine ${d.n}, il est essentiel de suivre une formation adaptee, qu'elle soit universitaire, en bootcamp intensif ou par apprentissage sur le terrain. La premiere etape consiste a acquerir les fondamentaux theoriques du secteur, puis a les mettre en pratique a travers des projets concrets qui constitueront votre portfolio professionnel.</p>
+    <p>Le developpement d'un reseau professionnel solide est tout aussi crucial que la formation technique. Participez a des conferences, des meetups et des hackathons. Utilisez LinkedIn pour suivre les leaders du secteur et engagez des conversations authentiques. Les opportunites viennent souvent des relations que vous tissez, pas uniquement des diplomes que vous accumulez.</p>
+    <p>La veille technologique est non negociable dans un secteur qui evolue aussi rapidement. Consacrez au minimum 5 heures par semaine a la lecture de publications specialisees, de rapports d'analyse et de documentation technique. Les professionnels qui reussissent le mieux sont ceux qui anticipent les tendances plutot que de les subir.</p>
+    <p>Enfin, n'hesitez pas a demarrer modestement. Un stage, un poste junior ou meme un projet freelance de petite envergure peut ouvrir la porte a des opportunites bien plus grandes. L'experience pratique est souvent plus valorisee par les employeurs que les certifications theoriques, particulierement dans les secteurs innovants.</p>
+</div>
+<h2>2. Opportunites du Marche</h2>
+<div class="section">
+    <p>Le marche du domaine ${d.n} est actuellement evalue a ${d.mkt} avec une projection de ${d.mk30} d'ici 2030, soit une multiplication significative de la valeur en seulement 5 ans. Cette croissance est alimentee par des facteurs structurels profonds : transformation numerique des entreprises, politiques gouvernementales incitatives, et evolution des comportements des consommateurs.</p>
+    <p>Les opportunites sont multiples : integration dans des entreprises etablies offrant stabilite et avantages sociaux, lancement en freelance pour ceux qui preferent l'autonomie, ou creation de startup pour les plus entrepreneurs. Chaque voie presente ses propres defis et recompenses. Le freelancing offre liberte et potentiel de revenus eleves mais exige une discipline personnelle et une capacite a gerer l'incertitude financiere.</p>
+    <p>Les niches emergentes representent les opportunites les plus prometteuses pour les nouveaux entrants. Identifier un segment specifique ou la demande depasse l'offre permet de se positionner avantageusement et de developper une expertise recherchee que peu de professionnels peuvent offrir.</p>
+</div>
+<h2>3. Risques et Inconvenients</h2>
+<div class="risk-box"><h4>A Considerer</h4><p>La concurrence est elevee, avec un taux d'echec de ${100-d.sr}% pour les nouvelles entreprises. La formation peut etre couteuse et longue. L'evolution technologique constante necessite un apprentissage continu. Le marche peut connaitre des cycles de volatilite. Certains segments sont soumis a des reglementations strictes.</p></div>
+<div class="adv-box"><h4>Points Forts</h4><p>La demande est ${d.g25>15?'tres forte':'stable'} avec une croissance de +${d.g25}%. Les professionnels qualifies sont recherches et bien remuneres. Le travail a distance est souvent possible pour les metiers intellectuels. L'impact du travail est generalement valorisant et porteur de sens.</p></div>
+<div class="footer"><p><strong>Jex-analytique</strong> - JEXREY | ${new Date().toLocaleDateString('fr-FR')}</p></div>
+</body></html>`;
+    gP('Debuter '+d.n, content);
+    notify('PDF Guide genere','success');
+}
+
+// ===== BILLIONAIRE PDF =====
+function downloadBillPDF(id) {
+    const b = STORE.billionaires.find(x => x.id === id);
+    if (!b) return;
+    const content = `<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>${b.n} - Jex-analytique</title>${PDF_STYLE}</head><body>
+<div class="cover" style="background:linear-gradient(135deg,#1a1a2e,#4a3500)">
+    <h1>${b.n}</h1>
+    <p class="subtitle">Profil Milliardaire - Analyse Strategique</p>
+    <div class="badge-row"><span class="badge" style="background:rgba(241,196,15,0.25)">Fortune: ${b.fmt}</span><span class="badge">Age: ${b.a} ans</span><span class="badge">${b.ct}</span></div>
+</div>
+<h2>1. Portrait</h2>
+<div class="section">
+    <p><strong>Groupe :</strong> ${b.gr}</p>
+    <p><strong>Secteur d'activite :</strong> ${b.sec}</p>
+    <p><strong>Fortune estimee :</strong> ${b.fmt} (Forbes Real-Time, mi-2025)</p>
+</div>
+<h2>2. Strategie Business</h2>
+<div class="strat-box"><p>${b.strat}</p>
+    <p>La cle du succes de ${b.n} reside dans sa capacite a identifier des opportunites disruptives la ou d'autres ne voient que des risques. Cette approche combine une vision a long terme exceptionnelle, une tolerance au risque superieure a la moyenne, et une execution operationnelle rigoureuse. Chaque decision strategique est guidee par une comprehension profonde des tendances technologiques, economiques et sociales qui faconnent le monde.</p>
+    <p>L'innovation n'est pas un accident dans son parcours, mais le resultat d'une methode deliberee : remettre en question les hypotheses fondamentales, investir massivement dans la R&D meme lorsque les marches sont sceptiques, et attirer les meilleurs talents en leur offrant des defis a la hauteur de leurs ambitions. Cette culture de l'excellence et de la remise en question permanente a permis de construire des avantages concurrentiels presque impossibles a repliquer.</p>
+    <p>La diversification de ses activites suit une logique coherente plutot qu'une dispersion opportuniste. Chaque nouvelle entreprise ou investissement vient renforcer un ecosysteme integre ou les synergies creent une valeur superieure a la somme des parties. Cette approche ecosystemique cree des barrieres a l'entree considerables et assure une resilience face aux cycles economiques.</p>
+</div>
+<h2>3. Lecons a Tirer</h2>
+<div class="section">
+    <p><strong>1. Penser en premiers principes :</strong> Au lieu de partir des solutions existantes, repartir des fondamentaux pour trouver des approches radicalement nouvelles.</p>
+    <p><strong>2. Integration verticale :</strong> Controler toute la chaine de valeur pour reduire les couts, ameliorer la qualite et accelerer l'innovation. Les marges sont 30 a 40% superieures a celles des concurrents qui externalisent.</p>
+    <p><strong>3. Culture de l'excellence :</strong> Exiger le meilleur de soi-meme et de ses equipes. Les deadlines agressives et les objectifs ambitieux stimulent la creativite et l'innovation.</p>
+    <p><strong>4. Vision a long terme :</strong> Ne pas sacrifier le potentiel futur pour des profits a court terme. Reinvestir massivement les gains dans la R&D et l'expansion.</p>
+    <p><strong>5. Communication directe :</strong> Utiliser les reseaux sociaux et les medias pour controler le narratif et creer un lien direct avec le public, sans intermediaires.</p>
+</div>
+<div class="footer"><p><strong>Jex-analytique</strong> - JEXREY | ${new Date().toLocaleDateString('fr-FR')}</p><p>Source: Forbes Real-Time Billionaires, Bloomberg Billionaires Index</p><p style="color:#e74c3c"><strong>Avertissement:</strong> Les fortunes fluctuent quotidiennement selon les marches financiers.</p></div>
+</body></html>`;
+    gP(b.n, content);
+    notify('PDF Milliardaire genere','success');
+}
+
+// ===== METIER PDF =====
+function downloadMetierPDF(name) {
+    const m = STORE.metiers[name];
+    if (!m) return;
+    const vals = m.trend==='up'?[parseFloat(m.gro.replace('%','').replace('+',''))-7,parseFloat(m.gro.replace('%','').replace('+',''))-2,parseFloat(m.gro.replace('%','').replace('+',''))]:m.trend==='declining'?[parseFloat(m.gro.replace('%','').replace('-',''))+3,parseFloat(m.gro.replace('%','').replace('-',''))+1,parseFloat(m.gro.replace('%','').replace('-',''))]:[parseFloat(m.gro.replace('%','').replace('+',''))-1,parseFloat(m.gro.replace('%','').replace('+','')),parseFloat(m.gro.replace('%','').replace('+',''))+1];
+    const chart = svgBarChart(vals, ['2023','2024','2025'], [m.trend==='up'?'#27ae60':m.trend==='declining'?'#e74c3c':'#3498db','#3498db','#3498db'], 180);
+    const pie = svgPieChart(m.sr, 200);
+    const content = `<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>${m.n} - Jex-analytique</title>${PDF_STYLE}</head><body>
+<div class="cover" style="background:linear-gradient(135deg,${m.trend==='up'?'#1a3a2a':'#3a1a1a'},${m.trend==='up'?'#0d2a18':'#2a0d0d'})">
+    <h1>${m.n}</h1>
+    <p class="subtitle">Rapport Complet d'Analyse Professionnelle</p>
+    <div class="badge-row"><span class="badge" style="background:rgba(255,255,255,0.2)">${m.sal}</span><span class="badge">${m.gro}</span><span class="badge">${m.type==='intellectuel'?'Intellectuel':m.type==='manuel'?'Manuel':'Mixte'}</span></div>
+</div>
+
+<h2>1. Description du Metier</h2>
+<div class="section">
+    <p><strong>Secteur :</strong> ${m.sec}</p>
+    <p>${m.desc}</p>
+    <p>Dans le contexte economique actuel de 2025, ce metier se positionne a un carrefour strategique. Les professionnels qui exercent cette activite doivent combiner des competences techniques pointues avec une capacite d'adaptation aux evolutions technologiques et reglementaires qui transforment leur secteur a un rythme sans precedent. La veille permanente et la formation continue ne sont plus des options mais des imperatifs absolus pour rester competitif.</p>
+    <p>Les perspectives d'evolution dependent fortement de la specialisation et de la capacite a se reinventer. Ceux qui choisissent la voie de l'expertise pointue peuvent atteindre des niveaux de remuneration et de reconnaissance tres eleves, tandis que ceux qui preferent la polyvalence trouvent leur place dans des structures plus petites ou le port de multiples casquettes est valorise. Dans tous les cas, la reussite dans ce metier exige un engagement personnel significatif et une veritable passion pour le domaine.</p>
+</div>
+
+<h2>2. Statistiques et Indicateurs</h2>
+<div class="stats-grid">
+    <div class="stat-box green"><div class="stat-num">${m.sal}</div><div class="stat-lbl">Fourchette Salariale</div></div>
+    <div class="stat-box"><div class="stat-num">${m.gro}</div><div class="stat-lbl">Croissance</div></div>
+    <div class="stat-box orange"><div class="stat-num">${m.sr}%</div><div class="stat-lbl">Taux Reussite</div></div>
+    <div class="stat-box ${m.trend==='up'?'green':m.trend==='declining'?'red':'orange'}"><div class="stat-num">${m.trend==='up'?'↑ Hausse':m.trend==='declining'?'↓ Baisse':m.trend==='stable'?'→ Stable':'⇄ Volatile'}</div><div class="stat-lbl">Tendance Marche</div></div>
+</div>
+<div class="section"><h3>Evolution du Marche (3 dernieres annees)</h3>${chart}<p style="text-align:center;font-size:0.75rem;color:#888">La fleche indique la tendance projetee du marche pour ce metier.</p></div>
+<div class="section"><h3>Diagramme Reussite / Echec</h3>${pie}</div>
+
+<h2>3. Formation et Diplomes</h2>
+<div class="section">
+    <p>${m.dip}</p>
+    <p>Au-dela des diplomes formels, les employeurs valorisent de plus en plus les certifications professionnelles, les portfolios de projets concrets et l'experience pratique. La formation continue est essentielle tout au long de la carriere. Les professionnels qui investissent dans leur developpement personnel et restent a la pointe des innovations de leur secteur sont ceux qui progressent le plus rapidement et qui resistent le mieux aux perturbations economiques.</p>
+    <p>Le cout des etudes peut representer un investissement consequent, allant de quelques milliers d'euros pour les formations courtes a plus de 100 000 EUR pour les parcours les plus longs. Cependant, le retour sur investissement est generalement favorable pour les metiers en croissance, avec un amortissement qui peut intervenir en 2 a 5 ans selon le secteur et la localisation geographique.</p>
+</div>
+
+<h2>4. Avantages et Inconvenients</h2>
+<div class="adv-box"><h4>Avantages</h4><p>${m.adv.split(', ').map(a => '• ' + a + '.').join('<br>')}</p>
+    <p>En resume, ce metier offre un equilibre entre stimulation intellectuelle, reconnaissance professionnelle et compensation financiere qui le rend attractif pour les personnes motivees et competentes. La diversite des missions et la possibilite d'evolution vers des postes a responsabilite constituent des moteurs d'engagement puissants.</p></div>
+<div class="risk-box"><h4>Inconvenients et Risques</h4><p>${m.inc.split(', ').map(a => '• ' + a + '.').join('<br>')}</p>
+    <p>Il est important de peser soigneusement ces inconvenients avant de s'engager dans cette voie. Certains defis, comme la pression psychologique ou la penibilite physique, peuvent avoir des consequences a long terme sur la sante et le bien-etre. Une evaluation honnete de sa propre resilience et de ses priorites de vie est indispensable.</p></div>
+
+${m.ent?`
+<h2>5. Exemples de Reussite</h2>
+<div class="section">
+    <p><strong>${m.ent}</strong></p>
+    <p>Ces personnalites illustrent le potentiel de ce metier lorsque le talent rencontre l'opportunite et le travail acharne. Leur parcours montre que la reussite ne vient pas du jour au lendemain mais se construit sur des annees d'efforts, d'apprentissage continu et de resilience face aux echecs. Ils constituent des sources d'inspiration pour tous ceux qui envisagent cette carriere.</p>
+    <p>L'analyse de leur trajectoire revele des points communs : une passion authentique pour leur domaine, une volonte d'apprendre constamment, une capacite a prendre des risques calcules et un reseau professionnel solide construit patiemment au fil des annees.</p>
+</div>`:''}
+
+<div class="footer">
+    <p><strong>Jex-analytique</strong> - JEXREY | Document genere le ${new Date().toLocaleDateString('fr-FR')}</p>
+    <p>Sources: U.S. Bureau of Labor Statistics (BLS), Indeed, Stack Overflow Developer Survey, PwC AI Jobs Barometer, Glassdoor</p>
+    <p style="color:#e74c3c;margin-top:0.5rem"><strong>Avertissement important :</strong> Les informations presentees dans ce document sont basees sur des donnees statistiques qui peuvent evoluer rapidement. Les salaires varient selon l'experience, la localisation geographique, la taille de l'entreprise et les competences individuelles. Les taux de reussite sont des estimations basees sur des moyennes sectorielles et ne predisent pas les resultats individuels. Avant toute prise de decision de carriere, consultez des sources officielles et des professionnels du secteur.</p>
+</div>
+</body></html>`;
+    gP(m.n, content);
+    notify('PDF Metier complet genere (5+ phrases, courbes, strategie)','success');
+}
+
+// ======== INIT ========
+function init(){updateFB();renderTopSectors();setTimeout(initGlobe,300)}
+document.addEventListener('DOMContentLoaded',init);
+document.addEventListener('click',e=>{if(!e.target.closest('nav'))document.getElementById('navLinks').classList.remove('open')});
+window.addEventListener('resize',()=>{const c=document.getElementById('globeCanvas');if(c){const p=document.getElementById('globe-wrap');c.width=p.clientWidth;c.height=p.clientHeight}});
+document.querySelectorAll('a[href="#"]').forEach(a=>a.addEventListener('click',e=>e.preventDefault()));
+</script>
+</body>
+</html>
